@@ -30,6 +30,7 @@ public abstract class GWClientHandler implements Runnable{
 			logger.debug("Waiting for a message from client...");
 			try{
 				msg = receiveMessage();
+
 			}catch(SocketTimeoutException e){
 				OnClientIdle(this.client);
 			}catch(IOException e){

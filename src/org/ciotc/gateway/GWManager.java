@@ -6,9 +6,7 @@
  *
  */
 package org.ciotc.gateway;
-
 import java.io.IOException;
-import java.util.HashMap;
 
 /**
  * @author ZhangMin.name
@@ -53,9 +51,5 @@ public class GWManager{
 		ConnectionManager.getInstance().shutdown();
 		startTime = -1;
 		running = false;
-	}
-	public static void main(String[] args) {
-
-		
 	}
 }

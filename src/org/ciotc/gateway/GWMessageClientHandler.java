@@ -6,12 +6,8 @@
  *
  */
 package org.ciotc.gateway;
-
-import java.io.IOException;
 import java.net.Socket;
-
 import org.apache.log4j.Logger;
-
 
 /**
  * @author ZhangMin.name
@@ -48,7 +44,6 @@ public class GWMessageClientHandler extends GWClientHandler {
 					+ "[" + socket.getPort() + "]";
 	    logger.debug("OnClientException: " + host + "\n" + exception);
 	    ConnectionManager.getInstance().removeMessageClients(socket);
-		
 	}
 
 }

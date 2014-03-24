@@ -2,7 +2,6 @@
     pageEncoding="utf-8"%>
 <%@ page import="org.ciotc.gateway.*" %>
 <%@ page import="java.util.*" %>
-
 <!DOCTYPE html>
 <html lang="zh">
   <head>
@@ -35,8 +34,6 @@
   </head>
 
   <body role="document">
-
-
     <div class="container" role="main">  
     <h1>网关Web控制台</h1>
 	<form action="manage.jsp" method="get">

@@ -8,7 +8,6 @@
 package org.ciotc.gateway;
 
 import java.net.Socket;
-
 import org.apache.log4j.Logger;
 
 /**
@@ -32,6 +31,7 @@ public class GWFeedClientHandler extends GWClientHandler {
 
 	@Override
 	public void OnClientMessage(Message msg) {
+
 		if (msg.isLocation())
 	    {
 	      if (msg.getType() == Message.MT_LOCATION) {

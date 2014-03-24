@@ -9,7 +9,6 @@ package org.ciotc.gateway;
 
 import java.net.Socket;
 import java.net.SocketException;
-
 import org.apache.log4j.Logger;
 
 
@@ -19,6 +18,7 @@ import org.apache.log4j.Logger;
  */
 public class GWMessageServer extends GWPacketServer {
 	private static final Logger logger = Logger.getLogger(GWMessageServer.class);
+
 	public GWMessageServer(int port) {
 		super(port);
 	}
@@ -42,8 +42,7 @@ public class GWMessageServer extends GWPacketServer {
 	@Override
 	public void OnServerStarted() {
 		 logger.info("MessageServer is started on port[" 
-				 		+ this.serverPort + "].");
-		
+				 		+ this.serverPort + "].");	
 	}
 
 	@Override
