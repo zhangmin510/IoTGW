@@ -21,7 +21,6 @@ public class GWFeedServer extends GWPacketServer {
 	private static final Logger logger = Logger.getLogger(GWFeedServer.class);
 	public GWFeedServer(int port) {
 		super(port);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

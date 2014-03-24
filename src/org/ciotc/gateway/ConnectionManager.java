@@ -10,6 +10,7 @@ package org.ciotc.gateway;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -64,6 +65,16 @@ public class ConnectionManager implements Runnable {
 		}
 		logger.info("ConnectionManager shutdown complete");
 	}
+	public HashMap<String,String> status(){
+		HashMap<String,String> stat = new HashMap<String,String>();
+		stat.put("feedClientNum", 
+				new Integer(this.feedClients.size()).toString());
+		stat.put("distClientNum", 
+				new Integer(this.distributionClients.size()).toString());
+		stat.put("messageClientNum", 
+				new Integer(this.messageClients.size()).toString());
+		return stat;
+	}
 	public static ConnectionManager getInstance() {
 		if(cm == null){
 			cm = new ConnectionManager();
@@ -75,7 +86,7 @@ public class ConnectionManager implements Runnable {
 		logger.debug("FeedClients count : " + this.feedClients.size());
 		this.taskPool.execute(new GWFeedClientHandler(socket));
 	}
-	private synchronized void removeFeedClients(Socket client){
+	public synchronized void removeFeedClients(Socket client){
 		this.feedClients.remove(client);
 		try{
 			client.close();
@@ -95,7 +106,7 @@ public class ConnectionManager implements Runnable {
 	    logger.debug("distributionClients count: " + this.distributionClients.size());
 	    this.taskPool.execute(new GWDistributionClientHandler(client)); 
 	}
-	private synchronized void removeDistributionClients(Socket client) {
+	public synchronized void removeDistributionClients(Socket client) {
 	    this.distributionClients.remove(client);
 	    try {
 	      client.close();
@@ -126,7 +137,7 @@ public class ConnectionManager implements Runnable {
 	    logger.debug("distributionClients count: " + this.distributionClients.size());
 	    this.taskPool.execute(new GWDistributionClientHandler(client)); 
 	}
-	private synchronized void removeMessageClients(Socket client) {
+	public synchronized void removeMessageClients(Socket client) {
 	    this.messageClients.remove(client);
 	    try {
 	      client.close();

@@ -8,33 +8,48 @@
 package org.ciotc.gateway;
 
 import java.net.Socket;
+import java.net.SocketException;
+
+import org.apache.log4j.Logger;
+
 
 /**
  * @author ZhangMin.name
  *
  */
 public class GWMessageServer extends GWPacketServer {
-
+	private static final Logger logger = Logger.getLogger(GWMessageServer.class);
 	public GWMessageServer(int port) {
 		super(port);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void OnConnectionEstablished(Socket sock) {
-		// TODO Auto-generated method stub
+		String host = sock.getInetAddress().getHostAddress() 
+						+ "[" + sock.getPort() + "]";
+	    logger.info("Client: opening socket to " + host);
+	    try
+	    {
+	      sock.setSoTimeout(60000);
+
+	      ConnectionManager.getInstance().addMessageClients(sock);
+	    } catch (SocketException e) {
+	      logger.error(e);
+	    }
 		
 	}
 
 	@Override
 	public void OnServerStarted() {
-		// TODO Auto-generated method stub
+		 logger.info("MessageServer is started on port[" 
+				 		+ this.serverPort + "].");
 		
 	}
 
 	@Override
 	public void OnServerStopped() {
-		// TODO Auto-generated method stub
+		ConnectionManager.getInstance().closeAllMessageClients();
+	    logger.info("MessageServer is stopped.");
 		
 	}
 

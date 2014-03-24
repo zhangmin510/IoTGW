@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page import="org.ciotc.gateway.*" %>
+<%@ page import="java.util.*" %>
+
 <!DOCTYPE html>
 <html lang="zh">
   <head>
@@ -9,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta http-equiv="refresh" content="10" />
     <link rel="shortcut icon" href="favicon.png">
 
     <title>网关配置</title>
@@ -35,18 +38,34 @@
 
 
     <div class="container" role="main">  
-    <h1>网关控制</h1>
-	<form action="index.jsp" method="get">
+    <h1>网关Web控制台</h1>
+	<form action="manage.jsp" method="get">
+	<%  
+	if(!GWManager.getInstance().running){
+	%>
 	启动网关<input type="submit" value="启动" name="start"><br />
+	<%} else {%>
 	停止网关<input type="submit" value="停止" name="stop"><br />
+	<%}%>
 	</form>
-	<h1><% 
-	out.println(request.getParameter("start"));
-	//ConnectionManager cm = ConnectionManager.getInstance();
-	//cm.start();
-	out.println(new Message().heartBeat());
 	
-	%></h1>
+	<% if(GWManager.getInstance().running){
+		long runTime = System.currentTimeMillis() - GWManager.getInstance().startTime;
+	%>
+	<h2>网关服务器运行状态</h2>
+	<ul>
+	    <li>运行时间：<%=runTime/1000 %>s</li>
+       <%
+       HashMap<String,String> stat = ConnectionManager.getInstance().status();
+       Set<String> keys = stat.keySet();
+       for(String key : keys){
+       %>
+       <li><%=key %> &nbsp; <%=stat.get(key) %></li>
+       <% 
+       }
+		}
+       %>  	
+	</ul>
 
     </div> <!-- /container -->
 

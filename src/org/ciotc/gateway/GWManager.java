@@ -6,30 +6,56 @@
  *
  */
 package org.ciotc.gateway;
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.webapp.WebAppContext;
+
+import java.io.IOException;
+import java.util.HashMap;
+
 /**
  * @author ZhangMin.name
  *
  */
 public class GWManager{
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		Server server  = new Server(8080);
-		//Set webapp context
-		WebAppContext webapp = new WebAppContext();
-		webapp.setContextPath("/");
-		webapp.setResourceBase("web");
-		
-		server.setHandler(webapp);
+	private GWPacketServerUDP feedServer;
+	private GWPacketServer distributionServer;
+	private GWPacketServer messageServer;
+	private static GWManager manager;
+	public static boolean running;
+	public static long startTime;
+	private GWManager(){
+		feedServer = new GWPacketServerUDP(5001);
+		distributionServer = new GWDistributionServer(5002);
+		messageServer = new GWMessageServer(5003);
+	}
+	public static GWManager getInstance(){
+		if(manager == null){
+			manager = new GWManager();
+		}
+	    return manager;
+	}
+	
+	public void start(){
+		ConnectionManager.getInstance().start();
 		try {
-			server.start();
-			server.join();
-		} catch (Exception e) {
+			
+			feedServer.start();
+			distributionServer.start();
+			messageServer.start();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		running = true;
+		startTime = System.currentTimeMillis();
+	}
+	public void stop(){
+		feedServer.stop();
+		distributionServer.stop();
+		messageServer.stop();
+		ConnectionManager.getInstance().shutdown();
+		startTime = -1;
+		running = false;
+	}
+	public static void main(String[] args) {
+
 		
 	}
 }
