@@ -11,9 +11,9 @@
 <!--     <osgi:reference id="eventAdminService" -->
 <!-- 		interface="org.osgi.service.event.EventAdmin" /> -->
 	
-    <bean name="core" class="name.zhangmin.gw.core.CoreActivator"
-    	init-method="start" destroy-method="stop">
-    </bean>
+<!--     <bean name="core" class="name.zhangmin.gw.core.CoreActivator" -->
+<!--     	init-method="start" destroy-method="stop"> -->
+<!--     </bean> -->
     
 <!--     <bean name="eventPublisher" class="name.zhangmin.gw.core.event.impl.EventPublisherImpl"> -->
 <!--     	<property name="eventAdmin" ref="eventAdminService" /> -->
