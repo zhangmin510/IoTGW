@@ -99,7 +99,7 @@ public class RESTApplication extends Application{
 		RESTApplication.restResources.remove(resource);
 	}
 	
-	public void active(BundleContext bundleContext) {
+	public void activate(BundleContext bundleContext) {
 		
 		
 		try {

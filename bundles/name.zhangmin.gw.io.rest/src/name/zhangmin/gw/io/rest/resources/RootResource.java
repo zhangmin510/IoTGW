@@ -1,6 +1,3 @@
-/**
- * 
- */
 package name.zhangmin.gw.io.rest.resources;
 
 import javax.ws.rs.DefaultValue;
