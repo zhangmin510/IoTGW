@@ -313,8 +313,8 @@ public class ThingManager extends AbstractEventSubscriber implements ThingTracke
 	        this.eventPublisher = eventPublisher;
 	    }
 
-	    protected void setItemChannelLinkRegistry(AppChannelLinkRegistry itemChannelLinkRegistry) {
-	        this.appChannelLinkRegistry = itemChannelLinkRegistry;
+	    protected void setAppChannelLinkRegistry(AppChannelLinkRegistry appChannelLinkRegistry) {
+	        this.appChannelLinkRegistry = appChannelLinkRegistry;
 	    }
 
 	    protected void setThingRegistry(ThingRegistry thingRegistry) {
@@ -326,7 +326,7 @@ public class ThingManager extends AbstractEventSubscriber implements ThingTracke
 	        this.eventPublisher = null;
 	    }
 
-	    protected void unsetItemChannelLinkRegistry(AppChannelLinkRegistry itemChannelLinkRegistry) {
+	    protected void unsetAppChannelLinkRegistry(AppChannelLinkRegistry appChannelLinkRegistry) {
 	        this.appChannelLinkRegistry = null;
 	    }
 

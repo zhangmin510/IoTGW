@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="name.zhangmin.gw.core.thing.link.AppChannelBindingRegistry">
-   <implementation class="name.zhangmin.gw.core.thing.link.AppChannelBindingRegistry"/>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="name.zhangmin.gw.core.thing.link.appchannelbindingregistry">
+   <implementation class="name.zhangmin.gw.core.thing.AppChannelBindingRegistry"/>
    <service>
-      <provide interface="name.zhangmin.gw.core.thing.link.AppChannelBindingRegistry"/>
+      <provide interface="name.zhangmin.gw.core.thing.AppChannelBindingRegistry"/>
    </service>
    <reference bind="setThingRegistry" cardinality="1..1" interface="name.zhangmin.gw.core.thing.ThingRegistry" name="ThingRegistry" policy="static" unbind="unsetThingRegistry"/>
 </scr:component>

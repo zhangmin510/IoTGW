@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="name.zhangmin.gw.core.thing.type.ThingTypeRegistry">
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="name.zhangmin.gw.core.thing.type.thingtyperegistry">
    <implementation class="name.zhangmin.gw.core.thing.type.ThingTypeRegistry"/>
    <service>
       <provide interface="name.zhangmin.gw.core.thing.type.ThingTypeRegistry"/>
