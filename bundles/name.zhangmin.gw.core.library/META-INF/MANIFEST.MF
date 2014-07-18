@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Library
+Bundle-SymbolicName: name.zhangmin.gw.core.library
+Bundle-Version: 1.0.0
+Bundle-Activator: name.zhangmin.gw.core.library.LibraryActivator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: name.zhangmin.gw.core.apps,
+ org.osgi.framework;version="1.3.0"
