@@ -10,7 +10,7 @@ package name.zhangmin.gw.core.type;
  */
 public enum EventType {
 	COMMAND("command"),
-	DATA("data");
+	STATE("state");
 	
 	private String name;
 	

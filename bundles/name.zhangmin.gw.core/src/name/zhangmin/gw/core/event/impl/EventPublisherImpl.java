@@ -135,7 +135,7 @@ public class EventPublisherImpl implements EventPublisher{
 		props.put("app", appName);
 		props.put("data", data);
 		if (source != null) props.put("source", source);
-		return new Event(createTopic(EventType.DATA, appName), props);
+		return new Event(createTopic(EventType.STATE, appName), props);
 	}
 
 }

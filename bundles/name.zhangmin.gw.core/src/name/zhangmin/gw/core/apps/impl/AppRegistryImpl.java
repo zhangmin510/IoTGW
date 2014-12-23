@@ -20,8 +20,6 @@ import name.zhangmin.gw.core.apps.AppRegistryChangeListener;
 import name.zhangmin.gw.core.apps.AppsChangeListener;
 import name.zhangmin.gw.core.apps.GenericApp;
 import name.zhangmin.gw.core.event.EventPublisher;
-
-import org.osgi.service.component.ComponentContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,10 +44,10 @@ public class AppRegistryImpl implements AppRegistry, AppsChangeListener{
 	/** to keep track of all app change listeners */
 	protected Collection<AppRegistryChangeListener> listeners = new CopyOnWriteArraySet<AppRegistryChangeListener>();
 
-	public void activate(ComponentContext componentContext) {
+	public void activate() {
 	}
 	
-	public void deactivate(ComponentContext componentContext) {
+	public void deactivate() {
 		// first remove ourself as a listener from the app providers
 		for(AppProvider provider : appMap.keySet()) {
 			provider.removeAppChangeListener(this);

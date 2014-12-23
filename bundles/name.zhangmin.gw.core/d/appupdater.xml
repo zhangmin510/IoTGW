@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="name.zhangmin.gw.core.appupdater">
+   <implementation class="name.zhangmin.gw.core.apps.impl.AppUpdater"/>
+   <reference bind="setAppRegistry" cardinality="1..1" interface="name.zhangmin.gw.core.apps.AppRegistry" name="AppRegistry" policy="dynamic" unbind="unsetAppRegistry"/>
+   <service>
+      <provide interface="org.osgi.service.event.EventHandler"/>
+   </service>
+   <property name="event.topics" type="String" value="iotgw/*"/>
+</scr:component>

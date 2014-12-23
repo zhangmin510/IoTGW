@@ -3,7 +3,6 @@
  */
 package name.zhangmin.gw.core;
 
-import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,25 +11,24 @@ import org.slf4j.LoggerFactory;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class CoreActivator implements BundleActivator{
+public class CoreActivator{
 
 	private static Logger logger = LoggerFactory.getLogger(CoreActivator.class); 
 	private static BundleContext context;
 
-	@Override
-	public void start(BundleContext arg0) throws Exception {
+	
+	public void setContext(BundleContext arg0){
 		context = arg0;
-		logger.debug("Core bundle has been started.");
-		
-	}
-
-	@Override
-	public void stop(BundleContext arg0) throws Exception {
-		context = arg0;
-		logger.debug("Core bundle has been stopped.");
-		
 	}
 	
+	public void start() {
+		logger.debug("Core bundle has been started.");
+	}
+	
+	public void stop() {
+		context = null;
+		logger.debug("Core bundle has been stopped.");
+	}
 	/**
 	 * Returns the bundle context of this bundle
 	 * @return the bundle context
