@@ -4,9 +4,7 @@ import java.util.Collection;
 
 /**
  * The AppRegistry is the central place, where apps are kept in memory and their state
- * is permanently tracked. So any code that requires the current state of apps should use
- * this service (instead of trying to keep their own local copy of the apps).
- * 
+ * is permanently tracked. 
  * Apps are registered by {@link AppProvider}s, which can provision them from any source
  * they like and also dynamically remove or add apps.
  * 

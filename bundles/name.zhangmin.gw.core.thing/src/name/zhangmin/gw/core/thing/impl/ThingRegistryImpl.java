@@ -133,7 +133,7 @@ public class ThingRegistryImpl implements ThingRegistry, ThingsChangeListener {
 		}
 	}
 
-    protected void addThingProvider(ThingProvider thingProvider) {
+    protected void setThingProvider(ThingProvider thingProvider) {
 		// only add this provider if it does not already exist
 		if(!thingMap.containsKey(thingProvider)) {
 			Collection<Thing> things = new CopyOnWriteArraySet<Thing>(thingProvider.getThings());

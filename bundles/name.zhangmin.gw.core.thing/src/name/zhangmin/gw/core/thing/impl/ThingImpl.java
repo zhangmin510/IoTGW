@@ -16,6 +16,7 @@ import name.zhangmin.gw.core.thing.ThingTypeUID;
 import name.zhangmin.gw.core.thing.ThingUID;
 import name.zhangmin.gw.core.thing.binding.ThingHandler;
 import name.zhangmin.gw.core.type.Data;
+import name.zhangmin.gw.core.type.State;
 
 /**
  * @author ZhangMin.name
@@ -111,10 +112,10 @@ public class ThingImpl implements Thing {
 	}
 
 	/* (non-Javadoc)
-	 * @see name.zhangmin.gw.core.thing.Thing#channelUpdated(name.zhangmin.gw.core.thing.ChannelUID, name.zhangmin.gw.core.type.Data)
+	 * @see name.zhangmin.gw.core.thing.Thing#channelUpdated(name.zhangmin.gw.core.thing.ChannelUID, name.zhangmin.gw.core.type.State)
 	 */
 	@Override
-	public void channelUpdated(ChannelUID channelUID, Data data) {
+	public void channelUpdated(ChannelUID channelUID, State data) {
 		for (ThingListener thingListener : thingListeners) 
 			thingListener.channelUpdated(channelUID, data);
 	}

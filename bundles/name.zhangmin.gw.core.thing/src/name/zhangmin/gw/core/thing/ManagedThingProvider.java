@@ -117,7 +117,7 @@ public class ManagedThingProvider extends AbstractThingProvider implements Stora
         this.storage = storage;
     }
 
-    protected void addStorageService(StorageService storageService) {
+    protected void setStorage(StorageService storageService) {
         this.storageSelector.addStorageService(storageService);
     }
 

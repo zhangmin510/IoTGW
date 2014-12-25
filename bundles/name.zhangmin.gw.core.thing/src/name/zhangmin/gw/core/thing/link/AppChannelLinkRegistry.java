@@ -102,7 +102,7 @@ public class AppChannelLinkRegistry implements AppChannelLinksChangeListener {
 		appChannelLinkAdded(provider, newAppChannelLink);
 	}
 
-    protected void addAppChannelLinkProvider(AppChannelLinkProvider AppChannelLinkProvider) {
+    protected void setAppChannelLinkProvider(AppChannelLinkProvider AppChannelLinkProvider) {
         // only add this provider if it does not already exist
         if (!appChannelLinkMap.containsKey(AppChannelLinkProvider)) {
             Collection<AppChannelLink> AppChannelLinks = new CopyOnWriteArraySet<AppChannelLink>(

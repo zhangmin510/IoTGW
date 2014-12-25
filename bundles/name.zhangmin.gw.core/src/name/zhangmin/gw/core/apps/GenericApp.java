@@ -3,18 +3,13 @@
  */
 package name.zhangmin.gw.core.apps;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Set;
 import java.util.WeakHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 
-import org.slf4j.LoggerFactory;
-
 import name.zhangmin.gw.core.event.EventPublisher;
 import name.zhangmin.gw.core.type.Command;
-import name.zhangmin.gw.core.type.Data;
 import name.zhangmin.gw.core.type.State;
 
 /**
@@ -28,8 +23,9 @@ import name.zhangmin.gw.core.type.State;
 public abstract class GenericApp implements App {
 
 	protected EventPublisher eventPublisher;
-	protected Set<StateChangeListener> listeners = 
-			new CopyOnWriteArraySet<StateChangeListener>(Collections.newSetFromMap(new WeakHashMap<StateChangeListener, Boolean>()));
+	protected Set<AppStateChangeListener> listeners = 
+			new CopyOnWriteArraySet<AppStateChangeListener>(Collections.newSetFromMap(
+					new WeakHashMap<AppStateChangeListener, Boolean>()));
 	final protected String name;
 	final protected String type;
 	protected State state = null;
@@ -92,13 +88,13 @@ public abstract class GenericApp implements App {
 		notifyListeners(oldState, state);
 	}
 	private void notifyListeners(State oldState, State newState) {
-		Set<StateChangeListener> clonedListeners = null;
-		clonedListeners = new CopyOnWriteArraySet<StateChangeListener>(listeners);
-		for (StateChangeListener listener : clonedListeners) {
+		Set<AppStateChangeListener> clonedListeners = null;
+		clonedListeners = new CopyOnWriteArraySet<AppStateChangeListener>(listeners);
+		for (AppStateChangeListener listener : clonedListeners) {
 			listener.stateUpdated(this, newState);
 		}
 		if (!oldState.equals(newState)) {
-			for (StateChangeListener listener : clonedListeners) {
+			for (AppStateChangeListener listener : clonedListeners) {
 				listener.stateChanged(this, oldState, newState);
 			}
 		}
@@ -112,12 +108,12 @@ public abstract class GenericApp implements App {
 		return getName() + " (" + "Type=" + getClass().getSimpleName() +
 				", " + "State=" + getState() + ")";
 	}
-	public void addStateChangeListener(StateChangeListener listener) {
+	public void addStateChangeListener(AppStateChangeListener listener) {
 		synchronized(listeners) {
 			listeners.add(listener);
 		}
 	}
-	public void removeStateChangeListener(StateChangeListener listener) {
+	public void removeStateChangeListener(AppStateChangeListener listener) {
 		synchronized(listeners) {
 			listeners.remove(listener);
 		}

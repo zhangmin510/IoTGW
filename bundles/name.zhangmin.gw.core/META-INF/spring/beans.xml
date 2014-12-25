@@ -11,30 +11,19 @@
     	init-method="start" destroy-method="stop">
     	<property name="context" ref="bundleContext"></property>
     </bean>
+        
+    <osgi:reference id="eventPublisherService" interface="name.zhangmin.gw.core.event.EventPublisher"/>
     
-    <osgi:reference id="stdEventAdmin" interface="org.osgi.service.event.EventAdmin"/>
+<!--     <bean id="appRegistry" class="name.zhangmin.gw.core.apps.impl.AppRegistryImpl"> -->
+<!--     	<property name="eventPublisher" ref ="eventPublisher"></property> -->
+<!--     </bean> -->
+<!--     <osgi:service interface="name.zhangmin.gw.core.apps.AppRegistry" ref="appRegistry"/> -->
     
-    <bean id="storageService" class="name.zhangmin.gw.core.storage.impl.VolatileStorageService"/>
-    <osgi:service interface="name.zhangmin.gw.core.storage.StorageService" ref="storageService"></osgi:service>
-    
-    <bean id="eventPublisher" class="name.zhangmin.gw.core.event.impl.EventPublisherImpl">
-    	<property name="eventAdmin" ref="stdEventAdmin"></property>
-    </bean>
-    
-    <osgi:service interface="name.zhangmin.gw.core.event.EventPublisher" ref="eventPublisher"/>
-    
-<!--     <osgi:reference id="eventPublisherService" interface="name.zhangmin.gw.core.event.EventPublisher"/> -->
-    
-    <bean id="appRegistry" class="name.zhangmin.gw.core.apps.impl.AppRegistryImpl">
-    	<property name="eventPublisher" ref ="eventPublisher"></property>
-    </bean>
-    <osgi:service interface="name.zhangmin.gw.core.apps.AppRegistry" ref="appRegistry"/>
-    
-    <bean id="appProvider" class="name.zhangmin.gw.core.apps.ManagedAppProvider"/>
+    <bean id="appProvider" class="name.zhangmin.gw.core.apps.impl.ManagedAppProvider"/>
     <osgi:service ref="appProvider">
     	<osgi:interfaces>
     		<value>name.zhangmin.gw.core.apps.AppProvider</value>
-    		<value>name.zhangmin.gw.core.apps.ManagedAppProvider</value>
+    		<value>name.zhangmin.gw.core.apps.impl.ManagedAppProvider</value>
     	</osgi:interfaces>
     </osgi:service>
     

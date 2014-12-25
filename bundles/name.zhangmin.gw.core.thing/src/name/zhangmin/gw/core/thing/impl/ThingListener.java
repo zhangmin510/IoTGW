@@ -7,6 +7,7 @@ import java.util.EventListener;
 
 import name.zhangmin.gw.core.thing.ChannelUID;
 import name.zhangmin.gw.core.type.Data;
+import name.zhangmin.gw.core.type.State;
 
 /**
  * {@link ThingListener} can be registered at a {@link Thing} object.
@@ -24,5 +25,5 @@ public interface ThingListener extends EventListener {
      * @param state
      *            state
      */
-    void channelUpdated(ChannelUID channelUID, Data data);
+    void channelUpdated(ChannelUID channelUID, State state);
 }

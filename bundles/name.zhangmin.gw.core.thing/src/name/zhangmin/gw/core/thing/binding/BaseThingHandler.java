@@ -9,6 +9,7 @@ import name.zhangmin.gw.core.thing.Thing;
 import name.zhangmin.gw.core.thing.ThingStatus;
 import name.zhangmin.gw.core.type.Command;
 import name.zhangmin.gw.core.type.Data;
+import name.zhangmin.gw.core.type.State;
 
 /**
  * @author ZhangMin.name
@@ -83,7 +84,7 @@ public abstract class BaseThingHandler implements ThingHandler {
      * @param state
      *            new state
      */
-    protected void updateState(ChannelUID channelUID, Data state) {
+    protected void updateState(ChannelUID channelUID, State state) {
         thing.channelUpdated(channelUID, state);
     }
 

@@ -114,11 +114,11 @@ public class ManagedAppChannelLinkProvider implements AppChannelLinkProvider,
         }
     }
 
-    protected void addStorageService(StorageService storageService) {
+    protected void setStorage(StorageService storageService) {
         this.storageSelector.addStorageService(storageService);
     }
 
-    protected void removeStorageService(StorageService storageService) {
+    protected void removeStorage(StorageService storageService) {
         this.storageSelector.removeStorageService(storageService);
     }
 

@@ -30,6 +30,7 @@ import name.zhangmin.gw.core.thing.binding.ThingHandlerFactory;
 import name.zhangmin.gw.core.thing.link.AppChannelLinkRegistry;
 import name.zhangmin.gw.core.type.Command;
 import name.zhangmin.gw.core.type.Data;
+import name.zhangmin.gw.core.type.State;
 
 /**
  * This class tracks all things in the {@link ThingRegistry} and
@@ -105,10 +106,10 @@ public class ThingManager extends AbstractEventSubscriber implements ThingTracke
 	    private ThingListener thingListener = new ThingListener() {
 
 	        @Override
-	        public void channelUpdated(ChannelUID channelUID, Data state) {
+	        public void channelUpdated(ChannelUID channelUID, State state) {
 	            String item = appChannelLinkRegistry.getBoundApp(channelUID);
 	            if (item != null) {
-	                eventPublisher.postData(item, state);
+	                eventPublisher.postState(item, state);
 	            }
 	        }
 	    };
@@ -168,7 +169,7 @@ public class ThingManager extends AbstractEventSubscriber implements ThingTracke
 	    }
 
 	    @Override
-	    public void receiveData(String itemName, Data newState) {
+	    public void receiveState(String itemName, Data newState) {
 	        for (Thing thing : this.things) {
 	            List<Channel> channels = thing.getChannels();
 	            for (Channel channel : channels) {

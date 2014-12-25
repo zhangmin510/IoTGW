@@ -3,11 +3,7 @@ package name.zhangmin.gw.core.apps;
 import java.util.Collection;
 
 /**
- * An app provider provides instances of {@link GenericApp}. These
- * apps can be constructed from some static configuration files or
- * they can be derived from some dynamic logic.
- * 
- *
+ * An app provider provides instances of {@link GenericApp}. 
  */
 public interface AppProvider {
 	

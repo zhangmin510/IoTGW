@@ -6,7 +6,6 @@ package name.zhangmin.gw.core.apps;
 import java.util.List;
 
 import name.zhangmin.gw.core.type.Command;
-import name.zhangmin.gw.core.type.Data;
 import name.zhangmin.gw.core.type.State;
 
 /**
@@ -46,12 +45,12 @@ public interface App {
 	public String getType();
 	
 	/**
-	 * This method provides a list of all data type that can be used to 
+	 * This method provides a list of all state type that can be used to 
 	 * update the app state
 	 * 
-	 * @return a list of data types that can be used to update the app state
+	 * @return a list of state types that can be used to update the app state
 	 */
-	public List<Class<? extends Data>> getAcceptedDataTypes();
+	public List<Class<? extends State>> getAcceptedStateTypes();
 	
 	/**
 	 * This method provides a list of all command type that can be used for

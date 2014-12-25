@@ -2,7 +2,7 @@
 package name.zhangmin.gw.core.apps;
 
 /**
- * This exception is thrown by the {@link AppRegistry} if an item could
+ * This exception is thrown by the {@link AppRegistry} if an app could
  * not be found.
  * 
  */
