@@ -3,10 +3,11 @@
  */
 package name.zhangmin.gw.core.thing.binding;
 
+import name.zhangmin.gw.core.lib.type.Command;
+import name.zhangmin.gw.core.lib.type.State;
 import name.zhangmin.gw.core.thing.ChannelUID;
 import name.zhangmin.gw.core.thing.Thing;
-import name.zhangmin.gw.core.type.Command;
-import name.zhangmin.gw.core.type.Data;
+
 
 /**
  * This class can 'handle' a {@link Thing}. It must be registered as
@@ -36,9 +37,9 @@ public interface ThingHandler {
 	 * Handles a command for a given channel.
 	 * @param channelUID unique indentifier of the channel on which the data was
 	 * 	performed
-	 * @param data new data
+	 * @param state new state
 	 */
-	void handleData(ChannelUID channelUID, Data data);
+	void handleState(ChannelUID channelUID, State state);
 	/**
 	 * This method is called, before the handler is shut down.
 	 * An implementing class can clean resources here.

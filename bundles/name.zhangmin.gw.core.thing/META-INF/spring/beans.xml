@@ -18,7 +18,7 @@
     
     
     <bean id="thingProvider" class="name.zhangmin.gw.core.thing.ManagedThingProvider">
-<!--     	<property name="storage" ref="storageService"/> -->
+<!--     	<property name="storageService" ref="storageService"/> -->
     </bean>
     <osgi:service ref="thingProvider">
     	<osgi:interfaces>

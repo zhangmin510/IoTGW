@@ -4,12 +4,11 @@
 package name.zhangmin.gw.core.thing.binding;
 
 import name.zhangmin.gw.config.Configuration;
+import name.zhangmin.gw.core.lib.type.Command;
+import name.zhangmin.gw.core.lib.type.State;
 import name.zhangmin.gw.core.thing.ChannelUID;
 import name.zhangmin.gw.core.thing.Thing;
 import name.zhangmin.gw.core.thing.ThingStatus;
-import name.zhangmin.gw.core.type.Command;
-import name.zhangmin.gw.core.type.Data;
-import name.zhangmin.gw.core.type.State;
 
 /**
  * @author ZhangMin.name
@@ -41,7 +40,7 @@ public abstract class BaseThingHandler implements ThingHandler {
 	 * @see name.zhangmin.gw.core.thing.binding.ThingHandler#handleData(name.zhangmin.gw.core.thing.ChannelUID, name.zhangmin.gw.core.type.Data)
 	 */
 	@Override
-	public void handleData(ChannelUID channelUID, Data data) {
+	public void handleState(ChannelUID channelUID, State state) {
 		
 	}
 

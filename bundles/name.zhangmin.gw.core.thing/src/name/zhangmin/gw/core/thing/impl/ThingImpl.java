@@ -15,8 +15,7 @@ import name.zhangmin.gw.core.thing.ThingStatus;
 import name.zhangmin.gw.core.thing.ThingTypeUID;
 import name.zhangmin.gw.core.thing.ThingUID;
 import name.zhangmin.gw.core.thing.binding.ThingHandler;
-import name.zhangmin.gw.core.type.Data;
-import name.zhangmin.gw.core.type.State;
+import name.zhangmin.gw.core.lib.type.State;
 
 /**
  * @author ZhangMin.name

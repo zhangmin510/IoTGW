@@ -5,9 +5,8 @@ package name.zhangmin.gw.core.thing.impl;
 
 import java.util.EventListener;
 
+import name.zhangmin.gw.core.lib.type.State;
 import name.zhangmin.gw.core.thing.ChannelUID;
-import name.zhangmin.gw.core.type.Data;
-import name.zhangmin.gw.core.type.State;
 
 /**
  * {@link ThingListener} can be registered at a {@link Thing} object.

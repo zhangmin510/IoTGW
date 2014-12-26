@@ -19,6 +19,8 @@ import org.slf4j.LoggerFactory;
 
 import name.zhangmin.gw.core.event.EventPublisher;
 import name.zhangmin.gw.core.event.impl.AbstractEventSubscriber;
+import name.zhangmin.gw.core.lib.type.Command;
+import name.zhangmin.gw.core.lib.type.State;
 import name.zhangmin.gw.core.thing.Channel;
 import name.zhangmin.gw.core.thing.ChannelUID;
 import name.zhangmin.gw.core.thing.Thing;
@@ -28,9 +30,7 @@ import name.zhangmin.gw.core.thing.ThingUID;
 import name.zhangmin.gw.core.thing.binding.ThingHandler;
 import name.zhangmin.gw.core.thing.binding.ThingHandlerFactory;
 import name.zhangmin.gw.core.thing.link.AppChannelLinkRegistry;
-import name.zhangmin.gw.core.type.Command;
-import name.zhangmin.gw.core.type.Data;
-import name.zhangmin.gw.core.type.State;
+
 
 /**
  * This class tracks all things in the {@link ThingRegistry} and
@@ -169,7 +169,7 @@ public class ThingManager extends AbstractEventSubscriber implements ThingTracke
 	    }
 
 	    @Override
-	    public void receiveState(String itemName, Data newState) {
+	    public void receiveState(String itemName, State newState) {
 	        for (Thing thing : this.things) {
 	            List<Channel> channels = thing.getChannels();
 	            for (Channel channel : channels) {
@@ -180,7 +180,7 @@ public class ThingManager extends AbstractEventSubscriber implements ThingTracke
 	                                "Delegating update '{}' for item '{}' to handler for channel '{}'",
 	                                newState, itemName, channel.getUID());
 	                        try {
-	                            handler.handleData(channel.getUID(), newState);
+	                            handler.handleState(channel.getUID(), newState);
 	                        } catch (Exception ex) {
 	                            logger.error(
 	                                    "Exception occured while calling handler: " + ex.getMessage(),

@@ -7,4 +7,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: name.zhangmin.gw.core.lib.type,
  org.osgi.service.event;version="1.3.0",
  org.slf4j;version="1.6.1"
-Export-Package: name.zhangmin.gw.core.event;uses:="name.zhangmin.gw.core.lib.type"
+Export-Package: name.zhangmin.gw.core.event;uses:="name.zhangmin.gw.core.lib.type",
+ name.zhangmin.gw.core.event.impl

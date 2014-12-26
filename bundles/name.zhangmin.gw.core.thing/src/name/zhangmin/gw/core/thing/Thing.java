@@ -3,9 +3,9 @@ package name.zhangmin.gw.core.thing;
 import java.util.List;
 
 import name.zhangmin.gw.config.Configuration;
+import name.zhangmin.gw.core.lib.type.State;
 import name.zhangmin.gw.core.thing.binding.ThingHandler;
-import name.zhangmin.gw.core.type.Data;
-import name.zhangmin.gw.core.type.State;
+
 
 /**
  * This class is a representation of a connected part (e.g. physical

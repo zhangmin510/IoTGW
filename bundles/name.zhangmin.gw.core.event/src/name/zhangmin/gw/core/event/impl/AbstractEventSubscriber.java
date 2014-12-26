@@ -105,7 +105,7 @@ public abstract class AbstractEventSubscriber implements EventSubscriber, EventH
 	/**
 	 * {@inheritDoc}
 	 */
-	public void receiveData(String appName, State state) {
+	public void receiveState(String appName, State state) {
 		
 	}
 }
