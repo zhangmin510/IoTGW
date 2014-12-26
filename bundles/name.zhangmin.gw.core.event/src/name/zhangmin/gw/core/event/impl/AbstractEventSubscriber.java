@@ -13,9 +13,9 @@ import org.slf4j.LoggerFactory;
 
 import name.zhangmin.gw.core.event.EventConstants;
 import name.zhangmin.gw.core.event.EventSubscriber;
-import name.zhangmin.gw.core.type.Command;
-import name.zhangmin.gw.core.type.Data;
-import name.zhangmin.gw.core.type.EventType;
+import name.zhangmin.gw.core.lib.type.Command;
+import name.zhangmin.gw.core.lib.type.EventType;
+import name.zhangmin.gw.core.lib.type.State;
 
 /**
  * This class is an abstract implementation of the {@link EventSubscriber}
@@ -73,10 +73,10 @@ public abstract class AbstractEventSubscriber implements EventSubscriber, EventH
 		String operation = topicParts[1];
 		if (EventType.STATE.toString().equals(operation)) {
 			Object newDataObj = event.getProperty("data");
-			if (newDataObj instanceof Data) {
-				Data data = (Data) newDataObj;
+			if (newDataObj instanceof State) {
+				State data = (State) newDataObj;
 				try {
-					receiveData(appName, data);
+					receiveState(appName, data);
 				} catch(Exception e) {
 					this.logger.error("An error occured within the 'receiveData' method"
 							+ " of the event subscriber!", e);
@@ -105,7 +105,7 @@ public abstract class AbstractEventSubscriber implements EventSubscriber, EventH
 	/**
 	 * {@inheritDoc}
 	 */
-	public void receiveData(String appName, Data data) {
+	public void receiveData(String appName, State state) {
 		
 	}
 }

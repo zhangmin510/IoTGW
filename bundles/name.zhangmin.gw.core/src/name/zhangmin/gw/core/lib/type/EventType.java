@@ -1,7 +1,7 @@
 /**
  * 
  */
-package name.zhangmin.gw.core.type;
+package name.zhangmin.gw.core.lib.type;
 
 /**
  * This enum defining the event type.

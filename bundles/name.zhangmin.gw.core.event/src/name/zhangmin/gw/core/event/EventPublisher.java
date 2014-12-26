@@ -3,9 +3,11 @@
  */
 package name.zhangmin.gw.core.event;
 
-import name.zhangmin.gw.core.type.Command;
-import name.zhangmin.gw.core.type.Data;
-import name.zhangmin.gw.core.type.State;
+import name.zhangmin.gw.core.lib.type.Command;
+import name.zhangmin.gw.core.lib.type.State;
+
+
+
 
 /**
  * This interface is a service which is used to send commands or data

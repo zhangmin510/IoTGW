@@ -1,6 +1,8 @@
 package name.zhangmin.gw.core.apps;
 
-import name.zhangmin.gw.core.type.State;
+import name.zhangmin.gw.core.lib.type.State;
+
+
 
 
 

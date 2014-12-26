@@ -9,8 +9,9 @@ import java.util.WeakHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 import name.zhangmin.gw.core.event.EventPublisher;
-import name.zhangmin.gw.core.type.Command;
-import name.zhangmin.gw.core.type.State;
+import name.zhangmin.gw.core.lib.type.Command;
+import name.zhangmin.gw.core.lib.type.State;
+
 
 /**
  * This abstract base class for all apps. It provides all relevant logic
@@ -80,7 +81,7 @@ public abstract class GenericApp implements App {
 	}
 	protected void internalSend(Command command) {
 		if (eventPublisher != null)
-			eventPublisher.sendCommand(this.getName(), command);
+			eventPublisher.sendCommand(this.getName() , command);
 	}
 	public void setState(State state) {
 		State oldState = this.state;

@@ -3,8 +3,10 @@
  */
 package name.zhangmin.gw.core.event;
 
-import name.zhangmin.gw.core.type.Command;
-import name.zhangmin.gw.core.type.Data;
+import name.zhangmin.gw.core.lib.type.Command;
+import name.zhangmin.gw.core.lib.type.State;
+
+
 
 /**
  * This interface defines the callback interface for receiving
@@ -53,5 +55,5 @@ public interface EventSubscriber {
 	 * 		(not null, not empty, follows the app name specification)
 	 * @param data the data that was sent (not null)
 	 */
-	void receiveState(String appName, Data data);
+	void receiveState(String appName, State state);
 }

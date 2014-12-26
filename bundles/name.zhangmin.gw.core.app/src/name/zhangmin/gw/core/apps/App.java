@@ -5,8 +5,9 @@ package name.zhangmin.gw.core.apps;
 
 import java.util.List;
 
-import name.zhangmin.gw.core.type.Command;
-import name.zhangmin.gw.core.type.State;
+import name.zhangmin.gw.core.lib.type.Command;
+import name.zhangmin.gw.core.lib.type.State;
+
 
 /**
  * This class defines the core features of an IoTGW app.

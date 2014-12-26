@@ -1,10 +1,11 @@
-package name.zhangmin.gw.core.type.impl;
+package name.zhangmin.gw.core.lib.type.impl;
 
 import java.util.Arrays;
 
 import javax.xml.bind.DatatypeConverter;
 
-import name.zhangmin.gw.core.type.Data;
+import name.zhangmin.gw.core.lib.type.Data;
+
 
 
 /**

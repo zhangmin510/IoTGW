@@ -1,7 +1,7 @@
 /**
  * 
  */
-package name.zhangmin.gw.core.type;
+package name.zhangmin.gw.core.lib.type;
 
 /**
  * This is parent interface of all states and commands type.

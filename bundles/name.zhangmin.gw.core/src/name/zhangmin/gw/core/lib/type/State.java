@@ -1,4 +1,4 @@
-package name.zhangmin.gw.core.type;
+package name.zhangmin.gw.core.lib.type;
 
 public interface State extends Type {
 

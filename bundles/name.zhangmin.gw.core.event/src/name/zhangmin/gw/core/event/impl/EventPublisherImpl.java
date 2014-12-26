@@ -9,13 +9,12 @@ import java.util.Hashtable;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
 
-import name.zhangmin.gw.core.apps.AppUtil;
 import name.zhangmin.gw.core.event.EventConstants;
 import name.zhangmin.gw.core.event.EventPublisher;
-import name.zhangmin.gw.core.type.Command;
-import name.zhangmin.gw.core.type.Data;
-import name.zhangmin.gw.core.type.EventType;
-import name.zhangmin.gw.core.type.State;
+import name.zhangmin.gw.core.lib.type.Command;
+import name.zhangmin.gw.core.lib.type.EventType;
+import name.zhangmin.gw.core.lib.type.State;
+
 
 /**
  * This class is the main implementation of the {@link EventPublisher}
@@ -50,7 +49,7 @@ public class EventPublisherImpl implements EventPublisher{
 	 */
 	public void sendCommand(String appName, Command command, String source)
 			throws IllegalArgumentException, IllegalStateException {
-		AppUtil.assertValidAppName(appName);
+		//AppUtil.assertValidAppName(appName);
 		if (command == null) throw new IllegalArgumentException("The command must not be null");
 		
 		EventAdmin eventAdmin = this.eventAdmin;
@@ -77,7 +76,7 @@ public class EventPublisherImpl implements EventPublisher{
 	 */
 	public void postCommand(String appName, Command command, String source)
 			throws IllegalArgumentException, IllegalStateException {
-		AppUtil.assertValidAppName(appName);
+		//AppUtil.assertValidAppName(appName);
 		if (command == null) throw new IllegalArgumentException("The command must not be null");
 		
 		EventAdmin eventAdmin = this.eventAdmin;
@@ -104,7 +103,7 @@ public class EventPublisherImpl implements EventPublisher{
 	 */
 	public void postState(String appName, State state, String source)
 			throws IllegalArgumentException, IllegalStateException {
-		AppUtil.assertValidAppName(appName);
+		//AppUtil.assertValidAppName(appName);
 		if (state == null) throw new IllegalArgumentException("The data must not be null");
 		
 		EventAdmin eventAdmin = this.eventAdmin;
