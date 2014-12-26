@@ -13,6 +13,7 @@ import name.zhangmin.gw.core.lib.type.Command;
 import name.zhangmin.gw.core.lib.type.State;
 
 
+
 /**
  * This abstract base class for all apps. It provides all relevant logic
  * for the infranstructure, such as publishing updates to the event bus
@@ -144,3 +145,4 @@ public abstract class GenericApp implements App {
 		return true;
 	}
 }
+

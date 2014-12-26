@@ -48,7 +48,6 @@ public class ManagedAppProvider extends AbstractAppProvider implements StorageSe
 	    }
 
 		public void setStorageService(StorageService storageService) {
-			System.out.println("set storage service" + storageService);
 	        storageSelector.addStorageService(storageService);
 		}
 
