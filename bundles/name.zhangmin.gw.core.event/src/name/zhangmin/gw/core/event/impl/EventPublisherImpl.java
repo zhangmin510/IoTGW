@@ -133,7 +133,7 @@ public class EventPublisherImpl implements EventPublisher{
 	private Event createStateEvent(String appName, State state, String source) {
 		Dictionary<String, Object> props = new Hashtable<String, Object>(2);
 		props.put("app", appName);
-		props.put("data", state);
+		props.put("state", state);
 		if (source != null) props.put("source", source);
 		return new Event(createTopic(EventType.STATE, appName), props);
 	}

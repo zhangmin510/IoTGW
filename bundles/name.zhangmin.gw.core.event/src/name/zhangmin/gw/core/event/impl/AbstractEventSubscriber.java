@@ -72,7 +72,7 @@ public abstract class AbstractEventSubscriber implements EventSubscriber, EventH
 		if ((topicParts.length <= 2) || !EventConstants.TOPIC_PREFIX.equals(topicParts[0])) return;
 		String operation = topicParts[1];
 		if (EventType.STATE.toString().equals(operation)) {
-			Object newDataObj = event.getProperty("data");
+			Object newDataObj = event.getProperty("state");
 			if (newDataObj instanceof State) {
 				State data = (State) newDataObj;
 				try {
