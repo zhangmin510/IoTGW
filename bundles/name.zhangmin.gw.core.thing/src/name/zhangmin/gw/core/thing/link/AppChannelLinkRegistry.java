@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 
-import name.zhangmin.gw.core.thing.ChannelUID;
+import name.zhangmin.gw.core.thing.uid.ChannelUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -102,7 +102,7 @@ public class AppChannelLinkRegistry implements AppChannelLinksChangeListener {
 		appChannelLinkAdded(provider, newAppChannelLink);
 	}
 
-    protected void setAppChannelLinkProvider(AppChannelLinkProvider AppChannelLinkProvider) {
+    public void setAppChannelLinkProvider(AppChannelLinkProvider AppChannelLinkProvider) {
         // only add this provider if it does not already exist
         if (!appChannelLinkMap.containsKey(AppChannelLinkProvider)) {
             Collection<AppChannelLink> AppChannelLinks = new CopyOnWriteArraySet<AppChannelLink>(
@@ -114,7 +114,7 @@ public class AppChannelLinkRegistry implements AppChannelLinksChangeListener {
         }
     }
 
-    protected void removeAppChannelLinkProvider(AppChannelLinkProvider appChannelLinkProvider) {
+    public void removeAppChannelLinkProvider(AppChannelLinkProvider appChannelLinkProvider) {
         if (appChannelLinkMap.containsKey(appChannelLinkProvider)) {
             appChannelLinkMap.remove(appChannelLinkProvider);
             appChannelLinkProvider.removeAppChannelLinksChangeListener(this);

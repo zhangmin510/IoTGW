@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import name.zhangmin.gw.core.thing.ThingTypeUID;
+import name.zhangmin.gw.core.thing.uid.ThingTypeUID;
 
 
 /**

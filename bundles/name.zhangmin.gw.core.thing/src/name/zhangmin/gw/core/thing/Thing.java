@@ -5,12 +5,16 @@ import java.util.List;
 import name.zhangmin.gw.config.Configuration;
 import name.zhangmin.gw.core.lib.type.State;
 import name.zhangmin.gw.core.thing.binding.ThingHandler;
+import name.zhangmin.gw.core.thing.uid.ChannelUID;
+import name.zhangmin.gw.core.thing.uid.ThingTypeUID;
+import name.zhangmin.gw.core.thing.uid.ThingUID;
 
 
 /**
  * This class is a representation of a connected part (e.g. physical
  * device or clound service) from the real world. It contains a list
  * of {@link Channel}s, which can be bound to {@link App}s.
+ * 
  * @author ZhangMin.name
  *
  */

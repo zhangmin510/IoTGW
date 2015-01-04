@@ -2,7 +2,7 @@ package name.zhangmin.gw.core.thing;
 
 /**
  * {@link ThingRegistryChangeListener} can be implemented to listen for things
- * beeing added or removed. The listener must be added and removed via
+ * being added or removed. The listener must be added and removed via
  * {@link ThingRegistry#addThingRegistryChangeListener(ThingRegistryChangeListener)}
  * and
  * {@link ThingRegistry#removeThingRegistryChangeListener(ThingRegistryChangeListener)}

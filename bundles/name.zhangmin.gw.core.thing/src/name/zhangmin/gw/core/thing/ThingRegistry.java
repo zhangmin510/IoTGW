@@ -5,6 +5,8 @@ package name.zhangmin.gw.core.thing;
 
 import java.util.List;
 
+import name.zhangmin.gw.core.thing.uid.ThingUID;
+
 /**
  * This class tracks all {@link Thing}s from
  * different {@link ThingProvider}s and provides access to them.

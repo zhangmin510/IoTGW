@@ -5,7 +5,7 @@ package name.zhangmin.gw.core.thing.binding.builder;
 
 import name.zhangmin.gw.config.Configuration;
 import name.zhangmin.gw.core.thing.Channel;
-import name.zhangmin.gw.core.thing.ChannelUID;
+import name.zhangmin.gw.core.thing.uid.ChannelUID;
 
 /**
  * @author ZhangMin.name
@@ -13,12 +13,12 @@ import name.zhangmin.gw.core.thing.ChannelUID;
  */
 public class ChannelBuilder {
     private ChannelUID channelUID;
-    private String acceptedItemType;
+    private String acceptedAppType;
     private Configuration configuration;
 
     private ChannelBuilder(ChannelUID channelUID, String acceptedItemType) {
         this.channelUID = channelUID;
-        this.acceptedItemType = acceptedItemType;
+        this.acceptedAppType = acceptedItemType;
     }
 
     /**
@@ -52,6 +52,6 @@ public class ChannelBuilder {
      * @return channel
      */
     public Channel build() {
-        return new Channel(channelUID, acceptedItemType, configuration);
+        return new Channel(channelUID, acceptedAppType, configuration);
     }
 }

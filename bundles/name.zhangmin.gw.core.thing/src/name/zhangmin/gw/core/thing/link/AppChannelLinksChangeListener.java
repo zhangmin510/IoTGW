@@ -1,10 +1,3 @@
-/**
- * Copyright (c) 2014 openHAB UG (haftungsbeschraenkt) and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- */
 package name.zhangmin.gw.core.thing.link;
 
 /**
@@ -13,7 +6,7 @@ package name.zhangmin.gw.core.thing.link;
  * channel link providers or the item channel link registry are used in order to
  * be notified of any dynamic changes in the provided item channel links.
  * 
- * @author Dennis Nobel - Initial contribution
+ * @author ZhangMin.name
  * 
  */
 public interface AppChannelLinksChangeListener {

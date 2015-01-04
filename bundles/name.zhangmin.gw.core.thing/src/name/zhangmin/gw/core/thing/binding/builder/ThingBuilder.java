@@ -3,9 +3,9 @@
  */
 package name.zhangmin.gw.core.thing.binding.builder;
 
-import name.zhangmin.gw.core.thing.ThingTypeUID;
-import name.zhangmin.gw.core.thing.ThingUID;
-import name.zhangmin.gw.core.thing.impl.ThingImpl;
+import name.zhangmin.gw.core.thing.ThingImpl;
+import name.zhangmin.gw.core.thing.uid.ThingTypeUID;
+import name.zhangmin.gw.core.thing.uid.ThingUID;
 
 
 

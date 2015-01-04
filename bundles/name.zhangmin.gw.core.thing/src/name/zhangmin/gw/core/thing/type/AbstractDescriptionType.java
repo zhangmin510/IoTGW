@@ -4,7 +4,7 @@
 package name.zhangmin.gw.core.thing.type;
 
 
-import name.zhangmin.gw.core.thing.UID;
+import name.zhangmin.gw.core.thing.uid.UID;
 
 /**
  * This class is the base class for a

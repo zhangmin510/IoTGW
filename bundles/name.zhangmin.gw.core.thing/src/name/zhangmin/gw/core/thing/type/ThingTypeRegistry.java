@@ -9,14 +9,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+
 import name.zhangmin.gw.core.thing.Thing;
-import name.zhangmin.gw.core.thing.ThingTypeUID;
-import name.zhangmin.gw.core.thing.binding.ThingTypeChangeListener;
-import name.zhangmin.gw.core.thing.binding.ThingTypeProvider;
+import name.zhangmin.gw.core.thing.uid.ThingTypeUID;
 
 /**
  * This class tracks all {@link ThingType}s provided by registered

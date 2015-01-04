@@ -16,10 +16,11 @@ import org.osgi.util.tracker.ServiceTracker;
 
 import name.zhangmin.gw.config.Configuration;
 import name.zhangmin.gw.core.thing.Thing;
-import name.zhangmin.gw.core.thing.ThingTypeUID;
-import name.zhangmin.gw.core.thing.ThingUID;
+import name.zhangmin.gw.core.thing.ThingFactory;
 import name.zhangmin.gw.core.thing.type.ThingType;
 import name.zhangmin.gw.core.thing.type.ThingTypeRegistry;
+import name.zhangmin.gw.core.thing.uid.ThingTypeUID;
+import name.zhangmin.gw.core.thing.uid.ThingUID;
 
 /**
  * This class provides a base implementation for the

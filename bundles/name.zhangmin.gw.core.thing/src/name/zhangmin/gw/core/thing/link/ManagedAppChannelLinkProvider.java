@@ -1,10 +1,4 @@
-/**
- * Copyright (c) 2014 openHAB UG (haftungsbeschraenkt) and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- */
+
 package name.zhangmin.gw.core.thing.link;
 
 import java.util.Collection;
@@ -24,7 +18,7 @@ import org.slf4j.LoggerFactory;
  * {@link ManagedAppChannelLinkProvider} is responsible for managed
  * {@link AppChannelLink}s at runtime.
  * 
- * @author Dennis Nobel - Initial contribution
+ * @author ZhangMin.name
  * 
  */
 public class ManagedAppChannelLinkProvider implements AppChannelLinkProvider,
@@ -48,7 +42,7 @@ public class ManagedAppChannelLinkProvider implements AppChannelLinkProvider,
      * @param itemChannelLink
      *            item channel link
      */
-    public void addItemChannelLink(AppChannelLink appChannelLink) {
+    public void addAppChannelLink(AppChannelLink appChannelLink) {
         logger.info("Adding item channel link to managed item channel link provider '{}'.",
                 appChannelLink.toString());
         AppChannelLink oldAppChannelLink = storage.put(appChannelLink.getID(), appChannelLink);
@@ -114,11 +108,11 @@ public class ManagedAppChannelLinkProvider implements AppChannelLinkProvider,
         }
     }
 
-    protected void setStorage(StorageService storageService) {
+    public void setStorageService(StorageService storageService) {
         this.storageSelector.addStorageService(storageService);
     }
 
-    protected void removeStorage(StorageService storageService) {
+    public void removeStorage(StorageService storageService) {
         this.storageSelector.removeStorageService(storageService);
     }
 

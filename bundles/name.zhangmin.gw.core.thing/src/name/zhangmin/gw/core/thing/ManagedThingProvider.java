@@ -1,10 +1,4 @@
-/**
- * Copyright (c) 2014 openHAB UG (haftungsbeschraenkt) and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- */
+
 package name.zhangmin.gw.core.thing;
 
 import java.util.Collection;
@@ -17,6 +11,8 @@ import name.zhangmin.gw.core.storage.StorageSelector;
 import name.zhangmin.gw.core.storage.StorageSelector.StorageSelectionListener;
 import name.zhangmin.gw.core.storage.StorageService;
 import name.zhangmin.gw.core.thing.binding.ThingHandlerFactory;
+import name.zhangmin.gw.core.thing.uid.ThingTypeUID;
+import name.zhangmin.gw.core.thing.uid.ThingUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -117,11 +113,11 @@ public class ManagedThingProvider extends AbstractThingProvider implements Stora
         this.storage = storage;
     }
 
-    protected void setStorageService(StorageService storageService) {
+    public void setStorageService(StorageService storageService) {
         this.storageSelector.addStorageService(storageService);
     }
 
-    protected void addThingHandlerFactory(ThingHandlerFactory thingHandlerFactory) {
+    public void addThingHandlerFactory(ThingHandlerFactory thingHandlerFactory) {
         this.thingHandlerFactories.add(thingHandlerFactory);
     }
 

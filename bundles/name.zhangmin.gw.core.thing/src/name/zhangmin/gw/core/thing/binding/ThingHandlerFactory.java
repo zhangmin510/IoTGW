@@ -5,8 +5,8 @@ package name.zhangmin.gw.core.thing.binding;
 
 import name.zhangmin.gw.config.Configuration;
 import name.zhangmin.gw.core.thing.Thing;
-import name.zhangmin.gw.core.thing.ThingTypeUID;
-import name.zhangmin.gw.core.thing.ThingUID;
+import name.zhangmin.gw.core.thing.uid.ThingTypeUID;
+import name.zhangmin.gw.core.thing.uid.ThingUID;
 
 /**
  * This class is responsiable for creating {@link Thing}s and

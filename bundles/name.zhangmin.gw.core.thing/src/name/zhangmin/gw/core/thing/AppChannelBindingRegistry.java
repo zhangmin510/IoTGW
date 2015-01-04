@@ -11,6 +11,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map.Entry;
 
+import name.zhangmin.gw.core.thing.uid.ChannelUID;
+
 import org.osgi.service.component.ComponentContext;
 
 import com.google.common.collect.ArrayListMultimap;
@@ -77,19 +79,19 @@ public class AppChannelBindingRegistry implements ThingRegistryChangeListener {
         }
     }
 
-    protected void activate(ComponentContext componentContext) {
+    protected void activate() {
         thingRegistry.addThingRegistryChangeListener(this);
     }
 
-    protected void deactivate(ComponentContext componentContext) {
+    protected void deactivate() {
         thingRegistry.removeThingRegistryChangeListener(this);
     }
 
-    protected void setThingRegistry(ThingRegistry thingRegistry) {
+    public void setThingRegistry(ThingRegistry thingRegistry) {
         this.thingRegistry = thingRegistry;
     }
 
-    protected void unsetThingRegistry(ThingRegistry thingRegistry) {
+    public void unsetThingRegistry(ThingRegistry thingRegistry) {
         this.thingRegistry = null;
     }
 

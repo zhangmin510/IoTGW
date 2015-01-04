@@ -11,14 +11,9 @@
     <osgi:reference id="storageService" interface="name.zhangmin.gw.core.storage.StorageService"/>
     <osgi:reference id="eventPublisher" interface="name.zhangmin.gw.core.event.EventPublisher"/>
     
-<!--     <bean id="thingRegistry" class="name.zhangmin.gw.core.thing.impl.ThingRegistryImpl"> -->
-<!--     	<property name="thingProvider" ref="thingProvider"/> -->
-<!--     </bean> -->
-<!--     <osgi:service interface="name.zhangmin.gw.core.thing.ThingRegistry" ref="thingRegistry"/> -->
-    
     
     <bean id="thingProvider" class="name.zhangmin.gw.core.thing.ManagedThingProvider">
-<!--     	<property name="storageService" ref="storageService"/> -->
+    	<property name="storageService" ref="storageService"/>
     </bean>
     <osgi:service ref="thingProvider">
     	<osgi:interfaces>
@@ -27,38 +22,45 @@
     	</osgi:interfaces>
     </osgi:service>
     
-<!--     <bean id="thingManager" class="name.zhangmin.gw.core.thing.impl.ThingManager">  -->
-<!--     	<property name="thingRegistry" ref="thingRegistry"/> -->
-<!--     	<property name="eventPublisher" ref="eventPublisher"/> -->
-<!--     	<property name="appChannelLinkRegistry" ref="appChannelLinkRegistry"/> -->
-<!--     </bean>   -->
-<!--     <osgi:service interface="org.osgi.service.event.EventHandler" ref="thingManager"> -->
-<!--      	<property name="event.topics" value="iotgw/*"/> -->
-<!--     </osgi:service> -->
+     <bean id="thingRegistry" class="name.zhangmin.gw.core.thing.ThingRegistryImpl">
+    	<property name="thingProvider" ref="thingProvider"/>
+    </bean>
+    <osgi:service interface="name.zhangmin.gw.core.thing.ThingRegistry" ref="thingRegistry"/>
     
+    <bean id="thingManager" class="name.zhangmin.gw.core.thing.ThingManager" 
+    	init-method="activate" destroy-method="deactivate"> 
+    	<property name="thingRegistry" ref="thingRegistry"/>
+    	<property name="eventPublisher" ref="eventPublisher"/>
+    	<property name="appChannelLinkRegistry" ref="appChannelLinkRegistry"/>
+    </bean>  
+    <osgi:service interface="org.osgi.service.event.EventHandler" ref="thingManager">
+    	<osgi:service-properties>
+    		<entry key="event.topics" value="iotgw/*"/>
+    	</osgi:service-properties>
+    </osgi:service>
     
+    <bean id="appChannelBindingRegistry" class="name.zhangmin.gw.core.thing.AppChannelBindingRegistry"
+    	init-method="activate" destroy-method="deactivate"> 
+    	<property name="thingRegistry" ref="thingRegistry"/>
+    </bean>  
+    <osgi:service interface="name.zhangmin.gw.core.thing.AppChannelBindingRegistry" ref="appChannelBindingRegistry"/>
     
-<!--     <bean id="appChannelBindingRegistry" class="name.zhangmin.gw.core.thing.AppChannelBindingRegistry">  -->
-<!--     	<property name="thingRegistry" ref="thingRegistry"/> -->
-<!--     </bean>   -->
-<!--     <osgi:service interface="name.zhangmin.gw.core.thing.AppChannelBindingRegistry" ref="appChannelBindingRegistry"/> -->
-    
-<!--     <bean id="appChannelLinkProvider" class="name.zhangmin.gw.core.thing.link.ManagedAppChannelLinkProvider"> -->
-<!--     	<property name="storage" ref="storageService"/> -->
-<!--     </bean> -->
-<!--     <osgi:service ref="appChannelLinkProvider"> -->
-<!--     	<osgi:interfaces> -->
-<!--     		<value>name.zhangmin.gw.core.thing.link.AppChannelLinkProvider</value> -->
-<!--     		<value>name.zhangmin.gw.core.thing.link.ManagedAppChannelLinkProvider</value> -->
-<!--     	</osgi:interfaces> -->
-<!--     </osgi:service> -->
+    <bean id="appChannelLinkProvider" class="name.zhangmin.gw.core.thing.link.ManagedAppChannelLinkProvider">
+    	<property name="storageService" ref="storageService"/>
+    </bean>
+    <osgi:service ref="appChannelLinkProvider">
+    	<osgi:interfaces>
+    		<value>name.zhangmin.gw.core.thing.link.AppChannelLinkProvider</value>
+    		<value>name.zhangmin.gw.core.thing.link.ManagedAppChannelLinkProvider</value>
+    	</osgi:interfaces>
+    </osgi:service>
        
-<!--     <bean id="appChannelLinkRegistry" class="name.zhangmin.gw.core.thing.link.AppChannelLinkRegistry"> -->
-<!--     	<property name="appChannelLinkProvider" ref ="appChannelLinkProvider"></property> -->
-<!--     </bean> -->
-<!--     <osgi:service interface="name.zhangmin.gw.core.thing.link.AppChannelLinkRegistry" ref="appChannelLinkRegistry"/> -->
+    <bean id="appChannelLinkRegistry" class="name.zhangmin.gw.core.thing.link.AppChannelLinkRegistry">
+    	<property name="appChannelLinkProvider" ref ="appChannelLinkProvider"></property>
+    </bean>
+    <osgi:service interface="name.zhangmin.gw.core.thing.link.AppChannelLinkRegistry" ref="appChannelLinkRegistry"/>
     
-<!--     <bean id="thingTypeRegistry" class="name.zhangmin.gw.core.thing.type.ThingTypeRegistry"/> -->
-<!--     <osgi:service interface="name.zhangmin.gw.core.thing.type.ThingTypeRegistry" ref="thingTypeRegistry"/> -->
+    <bean id="thingTypeRegistry" class="name.zhangmin.gw.core.thing.type.ThingTypeRegistry"/>
+    <osgi:service interface="name.zhangmin.gw.core.thing.type.ThingTypeRegistry" ref="thingTypeRegistry"/>
 
 </beans>

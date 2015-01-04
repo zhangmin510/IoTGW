@@ -3,6 +3,8 @@
  */
 package name.zhangmin.gw.core.thing.type;
 
+import name.zhangmin.gw.core.thing.uid.ChannelTypeUID;
+
 /**
  * This class descrbes a concrete type of a {@link Channel}.
  * <p>
@@ -51,7 +53,7 @@ public class ChannelType extends AbstractDescriptionType {
      * 
      * @return the item type of this Channel type, e.g. {@code ColorItem} (neither null nor empty)
      */
-    public String getItemType() {
+    public String getAppType() {
         return this.appType;
     }
 

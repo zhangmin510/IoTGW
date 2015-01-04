@@ -5,8 +5,8 @@ package name.zhangmin.gw.core.thing.binding;
 
 import name.zhangmin.gw.core.lib.type.Command;
 import name.zhangmin.gw.core.lib.type.State;
-import name.zhangmin.gw.core.thing.ChannelUID;
 import name.zhangmin.gw.core.thing.Thing;
+import name.zhangmin.gw.core.thing.uid.ChannelUID;
 
 
 /**

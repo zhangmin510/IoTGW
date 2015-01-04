@@ -7,7 +7,7 @@ import java.util.List;
 import name.zhangmin.gw.config.Configuration;
 import name.zhangmin.gw.core.thing.Channel;
 import name.zhangmin.gw.core.thing.Thing;
-import name.zhangmin.gw.core.thing.impl.ThingImpl;
+import name.zhangmin.gw.core.thing.ThingImpl;
 
 import com.google.common.collect.Lists;
 

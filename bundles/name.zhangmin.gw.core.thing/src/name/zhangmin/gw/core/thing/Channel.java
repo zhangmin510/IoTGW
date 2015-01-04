@@ -4,6 +4,7 @@
 package name.zhangmin.gw.core.thing;
 
 import name.zhangmin.gw.config.Configuration;
+import name.zhangmin.gw.core.thing.uid.ChannelUID;
 
 /**
  * This class respresens a Channel which ia a part of a {@link Thing}.
