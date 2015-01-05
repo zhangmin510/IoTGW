@@ -7,20 +7,11 @@
        http://www.eclipse.org/gemini/blueprint/schema/blueprint 
        http://www.eclipse.org/gemini/blueprint/schema/blueprint/gemini-blueprint.xsd">
        
-<!--     <bean name="helloService" class="name.zhangmin.gw.protocol.ProtocolMain" -->
-<!--     	init-method="start" destroy-method="stop"> -->
-<!--     </bean> -->
-    
-    
-<!--     <osgi:service id="helloWorldService" ref="helloService" interface="name.zhangmin.hello.HelloWorldService"> -->
-    
-<!--     </osgi:service> -->
-    
-<!-- 	<osgi:service interface="java.lang.String"> -->
-<!-- 		<bean class="java.lang.String"> -->
-<!-- 			<constructor-arg> -->
-<!-- 				<value>Hello world!</value> -->
-<!-- 			</constructor-arg> -->
-<!-- 		</bean> -->
-<!-- 	</osgi:service> -->
+	<bean id="webActivitor" class="name.zhangmin.gw.web.WebActivator" init-method="start" destroy-method="stop">
+		<property name="httpService" ref="httpService"/>
+		<property name="bundleContext" ref="bundleContext"/>
+	</bean>
+	
+	<osgi:reference id="httpService" interface="org.osgi.service.http.HttpService" availability="mandatory"/>
+
 </beans>
