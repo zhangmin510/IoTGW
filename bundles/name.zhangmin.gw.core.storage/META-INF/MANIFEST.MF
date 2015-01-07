@@ -4,7 +4,9 @@ Bundle-Name: Storage
 Bundle-SymbolicName: name.zhangmin.gw.core.storage
 Bundle-Version: 1.0.0
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Activator: name.zhangmin.gw.core.storage.StorageServiceActivator
 Import-Package: org.eclipse.equinox.log;version="1.0.0",
  org.osgi.framework,
  org.slf4j;version="1.6.1"
 Export-Package: name.zhangmin.gw.core.storage
+Service-Component: OSGI-INF/*

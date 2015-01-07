@@ -68,7 +68,7 @@ public class StorageSelector<T> {
 		ServiceReference<?> reference = this.bundleContext.getServiceReference(StorageService.class);
 		
 		if (reference != null) {
-			StorageService service = (StorageService) CoreActivator.getContext().getService(reference);
+			StorageService service = (StorageService) StorageServiceActivator.getContext().getService(reference);
 			Storage<T> storage = service.getStorage(this.storageName);
 			return storage;
 		}
