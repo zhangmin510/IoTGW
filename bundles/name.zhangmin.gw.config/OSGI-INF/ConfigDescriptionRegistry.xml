@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="ConfigDescriptionRegistry">
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="false" name="ConfigDescriptionRegistry">
    
    <implementation class="name.zhangmin.gw.config.ConfigDescriptionRegistry"/>
    <service>
       <provide interface="name.zhangmin.gw.config.ConfigDescriptionRegistry"/>
    </service>
    <reference bind="addConfigDescriptionProvider" cardinality="0..n" interface="name.zhangmin.gw.config.ConfigDescriptionProvider" name="ConfigDescriptionProvider" policy="dynamic" unbind="removeConfigDescriptionProvider"/>
-   
-   
-   
 </scr:component>

@@ -1,10 +1,3 @@
-/**
- * Copyright (c) 2014 openHAB UG (haftungsbeschraenkt) and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- */
 package name.zhangmin.gw.config;
 
 import static java.nio.file.StandardWatchEventKinds.OVERFLOW;
@@ -42,24 +35,24 @@ import org.slf4j.LoggerFactory;
  * This class provides a mean to read any kind of configuration data from a config folder
  * file and dispatch it to the different bundles using the {@link ConfigurationAdmin} service.
  * 
- * <p>The name of the configuration folder can be provided as a program argument "smarthome.configdir"
+ * <p>The name of the configuration folder can be provided as a program argument "iotgw.configdir"
  * (default is "conf").
  * Configurations for OSGi services are kept in a subfolder that can be provided as a program argument
- * "smarthome.servicedir" (default is "services"). Any file in this folder with the extension .cfg will
+ * "iotgw.servicedir" (default is "services"). Any file in this folder with the extension .cfg will
  * be processed.</p>
  * 
  * <p>The format of the configuration file is similar to a standard property file, with the
  * exception that the property name can be prefixed by the service pid of the {@link ManagedService}:</p>
  * <p>&lt;service-pid&gt;:&lt;property&gt;=&lt;value&gt;</p>
  * <p>In case the pid does not contain any ".", the default service pid namespace is prefixed, which can
- * be defined by the program argument "smarthome.servicepid" (default is "org.eclipse.smarthome").</p> 
+ * be defined by the program argument "iotgw.servicepid" (default is "name.zhangmin.gw").</p> 
  * <p>If no pid is defined in the property line, the default pid namespace will be used together with the
  * filename. E.g. if you have a file "security.cfg", the pid that will be used is 
- * "org.eclipse.smarthome.security".</p>
+ * "name.zhangmin.gw.security".</p>
  * <p>Last but not least, a pid can be defined in the first line of a cfg file by prefixing it with "pid:",
- * e.g. "pid: com.acme.smarthome.security".
+ * e.g. "pid: name.zhangmin.security".
  *  
- * @author Kai Kreuzer - Initial contribution and API
+ * @author ZhangMin.name
  */
 public class ConfigDispatcher {
 
@@ -69,9 +62,6 @@ public class ConfigDispatcher {
 
 	private static WatchService watchService;
 	
-	// by default, we use the "configurations" folder in the home directory, but this location
-	// might be changed in certain situations (especially when setting a config folder in the
-	// SmartHome Designer).
 	private static String configFolder = ConfigConstants.MAIN_CONFIG_FOLDER;
 			
 	public void activate() {
@@ -86,8 +76,8 @@ public class ConfigDispatcher {
 
 	/**
 	 * Returns the configuration folder path name. The main config folder 
-	 * <code>&lt;smarthome&gt;/configurations</code> could be overwritten by setting
-	 * the System property <code>smarthome.configdir</code>.
+	 * <code>&lt;iotgw&gt;/configurations</code> could be overwritten by setting
+	 * the System property <code>iotgw.configdir</code>.
 	 * 
 	 * @return the configuration folder path name
 	 */

@@ -1,10 +1,3 @@
-/**
- * Copyright (c) 2014 openHAB UG (haftungsbeschraenkt) and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- */
 package name.zhangmin.gw.config;
 
 import java.util.Collection;
@@ -21,7 +14,7 @@ import org.osgi.service.component.ComponentContext;
  * services to collect all {@link ConfigDescription}s.
  * 
  * @see ConfigDescriptionProvider
- * @author Dennis Nobel - Initial contribution
+ * @author ZhangMin.name
  * 
  */
 public class ConfigDescriptionRegistry {
@@ -53,7 +46,7 @@ public class ConfigDescriptionRegistry {
         configDescriptionProviders.remove(configDescriptionProvider);
     }
 
-    protected void deactivate(ComponentContext componentContext) {
+    protected void deactivate() {
         for (ConfigDescriptionProvider configDescriptionProvider : configDescriptionProviders) {
             configDescriptionProvider.removeConfigDescriptionListener(configDescriptionListener);
         }

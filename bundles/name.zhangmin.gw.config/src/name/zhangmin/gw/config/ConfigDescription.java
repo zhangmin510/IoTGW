@@ -1,10 +1,3 @@
-/**
- * Copyright (c) 2014 openHAB UG (haftungsbeschraenkt) and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- */
 package name.zhangmin.gw.config;
 
 import java.util.ArrayList;
@@ -14,8 +7,8 @@ import java.util.List;
 
 /**
  * The {@link ConfigDescription} class contains a description for a concrete
- * configuration of e.g. a {@code Thing}, a {@code Bridge} or other specific
- * configurable services. This class <i>does not</i> contain the configuration
+ * configuration of e.g. a {@code Thing}, or other specific configurable 
+ * services. This class <i>does not</i> contain the configuration
  * data itself and is usually used for data validation of the concrete
  * configuration or for supporting user interfaces.
  * <p>
@@ -25,8 +18,7 @@ import java.util.List;
  * <p>
  * <b>Hint:</b> This class is immutable.
  * 
- * @author Michael Grammling - Initial Contribution
- * @author Dennis Nobel - Initial Contribution
+ * @author ZhangMin.name
  */
 public class ConfigDescription {
 

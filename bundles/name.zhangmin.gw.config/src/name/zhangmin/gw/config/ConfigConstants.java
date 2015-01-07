@@ -16,19 +16,19 @@ package name.zhangmin.gw.config;
 public class ConfigConstants {
 
 	/** The program argument name for setting the user data directory path */
-	final static public String USERDATA_DIR_PROG_ARGUMENT = "smarthome.userdata";
+	final static public String USERDATA_DIR_PROG_ARGUMENT = "iotgw.userdata";
 
 	/** The program argument name for setting the main config directory path */
-	final static public String CONFIG_DIR_PROG_ARGUMENT = "smarthome.configdir";
+	final static public String CONFIG_DIR_PROG_ARGUMENT = "iotgw.configdir";
 	
 	/** The program argument name for setting the service config directory path */
-	final static public String SERVICEDIR_PROG_ARGUMENT = "smarthome.servicedir";
+	final static public String SERVICEDIR_PROG_ARGUMENT = "iotgw.servicedir";
 
 	/** The program argument name for setting the service pid namespace */
-	final static public String SERVICEPID_PROG_ARGUMENT = "smarthome.servicepid";
+	final static public String SERVICEPID_PROG_ARGUMENT = "iotgw.servicepid";
 
 	/** The program argument name for setting the default services config file name */
-	final static public String SERVICECFG_PROG_ARGUMENT = "smarthome.servicecfg";
+	final static public String SERVICECFG_PROG_ARGUMENT = "iotgw.servicecfg";
 
 	/** The main configuration directory name */
 	final static public String MAIN_CONFIG_FOLDER = "conf"; 
@@ -37,8 +37,8 @@ public class ConfigConstants {
 	final static public String SERVICES_FOLDER = "services";
 
 	/** The default namespace for service pids */
-	final static public String SERVICE_PID_NAMESPACE = "org.eclipse.smarthome";
+	final static public String SERVICE_PID_NAMESPACE = "name.zhangmin.gw";
 
 	/** The default services configuration filename */
-	final static public String SERVICE_CFG_FILE = "smarthome.cfg";
+	final static public String SERVICE_CFG_FILE = "iotgw.cfg";
 }
