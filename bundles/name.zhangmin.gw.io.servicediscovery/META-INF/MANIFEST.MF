@@ -9,4 +9,4 @@ Import-Package: org.osgi.framework;version="1.7.0",
 Bundle-ClassPath: lib/jmdns-3.4.1.jar, . 
 Export-Package: name.zhangmin.gw.io.servicediscovery
 Bundle-ActivationPolicy: lazy
-
+Service-Component: OSGI-INF/*
