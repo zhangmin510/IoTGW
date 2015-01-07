@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="false" name="name.zhangmin.gw.core.apps.impl.managedappprovider">
+   <implementation class="name.zhangmin.gw.core.apps.impl.ManagedAppProvider"/>
+   
+   <service>
+      <provide interface="name.zhangmin.gw.core.apps.AppProvider"/>
+      <provide interface="name.zhangmin.gw.core.apps.impl.ManagedAppProvider"/>
+   </service>
+   
+   <reference bind="setStorageService" cardinality="1..1" 
+      interface="name.zhangmin.gw.core.storage.StorageService" name="StorageService" 
+      policy="static" unbind="unsetStorageService"/>
+   <reference bind="addAppFactory" cardinality="0..n" 
+      interface="name.zhangmin.gw.core.apps.AppFactory" name="AppFactory" 
+      policy="dynamic" unbind="removeAppFactory"/>
+   
+</scr:component>

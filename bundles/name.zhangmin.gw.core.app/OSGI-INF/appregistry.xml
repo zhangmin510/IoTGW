@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="false" name="name.zhangmin.gw.core.apps.appregistry">
+   <implementation class="name.zhangmin.gw.core.apps.impl.AppRegistryImpl"/>
+   <reference bind="addProvider" cardinality="0..n" interface="name.zhangmin.gw.core.apps.AppProvider" name="AppProvider" policy="dynamic" unbind="removeProvider"/>
+   <service>
+      <provide interface="name.zhangmin.gw.core.apps.AppRegistry"/>
+   </service>
+   <reference bind="setEventPublisher" cardinality="0..1" interface="name.zhangmin.gw.core.event.EventPublisher" name="EventPublisher" policy="dynamic" unbind="unsetEventPublisher"/>
+</scr:component>

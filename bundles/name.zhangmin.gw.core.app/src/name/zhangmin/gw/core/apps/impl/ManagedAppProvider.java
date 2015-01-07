@@ -10,7 +10,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import name.zhangmin.gw.core.apps.CoreActivator;
+import name.zhangmin.gw.core.apps.AppActivator;
 import name.zhangmin.gw.core.apps.AbstractAppProvider;
 import name.zhangmin.gw.core.apps.App;
 import name.zhangmin.gw.core.apps.AppFactory;
@@ -43,11 +43,12 @@ public class ManagedAppProvider extends AbstractAppProvider implements StorageSe
 	    private StorageSelector<String> storageSelector;
 		
 	    public ManagedAppProvider() {
-	        storageSelector = new StorageSelector<>(CoreActivator.getContext(),
+	        storageSelector = new StorageSelector<>(AppActivator.getContext(),
 	                App.class.getName(), this);
 	    }
 
 		public void setStorageService(StorageService storageService) {
+			System.out.println("set storage service");
 	        storageSelector.addStorageService(storageService);
 		}
 
@@ -57,6 +58,7 @@ public class ManagedAppProvider extends AbstractAppProvider implements StorageSe
 
 		public void addAppFactory(AppFactory appFactory) {
 			appFactories.add(appFactory);
+			System.out.println("add appfactory");
 		}
 
 		public void removeAppFactory(AppFactory appFactory) {
