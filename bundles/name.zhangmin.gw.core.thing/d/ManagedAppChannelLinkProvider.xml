@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="name.zhangmin.gw.core.thing.link.managedappchannellinkprovider">
-   <implementation class="name.zhangmin.gw.core.thing.link.ManagedAppChannelLinkProvider"/>
-   <reference bind="addStorageService" cardinality="1..n" interface="name.zhangmin.gw.core.storage.StorageService" name="StorageService" policy="dynamic" unbind="removeStorageService"/>
-   <service>
-      <provide interface="name.zhangmin.gw.core.thing.link.AppChannelLinkProvider"/>
-      <provide interface="name.zhangmin.gw.core.thing.link.ManagedAppChannelLinkProvider"/>
-   </service>
-</scr:component>

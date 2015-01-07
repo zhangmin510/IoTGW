@@ -12,6 +12,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
+import org.osgi.service.component.ComponentContext;
 import org.osgi.util.tracker.ServiceTracker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -268,8 +269,8 @@ public class ThingManager extends AbstractEventSubscriber implements ThingTracke
 	        }
 	    }
 
-	    protected void activate() {
-	        this.bundleContext = ThingActivator.getContext();;
+	    protected void activate(ComponentContext context) {
+	        this.bundleContext = context.getBundleContext();
 	        this.thingHandlerTracker = new ThingHandlerTracker(this.bundleContext);
 	        this.thingHandlerTracker.open();
 	    }

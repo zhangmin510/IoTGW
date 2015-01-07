@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="false" name="name.zhangmin.gw.core.thing.link.appchannellinkregistry">
+   <implementation class="name.zhangmin.gw.core.thing.link.AppChannelLinkRegistry"/>
+   <service>
+      <provide interface="name.zhangmin.gw.core.thing.link.AppChannelLinkRegistry"/>
+   </service>
+   <reference bind="addAppChannelLinkProvider" cardinality="0..n" interface="name.zhangmin.gw.core.thing.link.AppChannelLinkProvider" name="AppChannelLinkProvider" policy="dynamic" unbind="removeAppChannelLinkProvider"/>
+</scr:component>

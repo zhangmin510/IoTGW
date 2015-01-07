@@ -42,10 +42,6 @@ public class ThingType extends AbstractDescriptionType{
      *            the unique identifier which identifies this Thing type within
      *            the overall system (must neither be null, nor empty)
      * 
-     * @param supportedBridgeTypeUIDs
-     *            the unique identifiers to the bridges this Thing type supports
-     *            (could be null or empty)
-     * 
      * @param label the human readable label for the according type
      *     (must neither be null nor empty)
      * 

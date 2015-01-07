@@ -113,7 +113,7 @@ public class ManagedThingProvider extends AbstractThingProvider implements Stora
         this.storage = storage;
     }
 
-    public void setStorageService(StorageService storageService) {
+    public void addStorageService(StorageService storageService) {
         this.storageSelector.addStorageService(storageService);
     }
 
@@ -121,7 +121,7 @@ public class ManagedThingProvider extends AbstractThingProvider implements Stora
         this.thingHandlerFactories.add(thingHandlerFactory);
     }
 
-    protected void removeStorageService(StorageService storageService) {
+    public void removeStorageService(StorageService storageService) {
         this.storageSelector.removeStorageService(storageService);
     }
 

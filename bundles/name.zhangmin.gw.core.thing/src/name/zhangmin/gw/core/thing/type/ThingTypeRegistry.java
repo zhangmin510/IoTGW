@@ -88,7 +88,7 @@ public class ThingTypeRegistry implements ThingTypeChangeListener {
 		Collection<ThingType> thingTypes = thingTypeMap.get(provider);
 		if (thingTypes != null) thingTypes.remove(thingType);
 	}
-	protected void addThingTypeProvider(ThingTypeProvider thingTypeProvider) {
+	public void addThingTypeProvider(ThingTypeProvider thingTypeProvider) {
 		if (!thingTypeMap.containsKey(thingTypeProvider)) {
 			Collection<ThingType> thingTypes = new CopyOnWriteArraySet<>(
 				thingTypeProvider.getThingTypes());
@@ -98,7 +98,7 @@ public class ThingTypeRegistry implements ThingTypeChangeListener {
 					thingTypeProvider.getClass().getName());
 		}
 	}
-    protected void removeThingTypeProvider(ThingTypeProvider thingTypeProvider) {
+    public void removeThingTypeProvider(ThingTypeProvider thingTypeProvider) {
         if (thingTypeMap.containsKey(thingTypeProvider)) {
             thingTypeMap.remove(thingTypeProvider);
             thingTypeProvider.removeThingTypeChangeListener(this);
