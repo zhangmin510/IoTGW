@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="name.zhangmin.gw.core.event.eventpublisher">
+   <implementation class="name.zhangmin.gw.core.event.impl.EventPublisherImpl"/>
+   <reference bind="setEventAdmin" cardinality="1..1" interface="org.osgi.service.event.EventAdmin" name="EventAdmin" policy="dynamic" unbind="unsetEventAdmin"/>
+   <service>
+      <provide interface="name.zhangmin.gw.core.event.EventPublisher"/>
+   </service>
+</scr:component>
