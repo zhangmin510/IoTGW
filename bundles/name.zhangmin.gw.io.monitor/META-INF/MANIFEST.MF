@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Monitor
+Bundle-SymbolicName: name.zhangmin.gw.io.monitor
+Bundle-Version: 1.0.0
+Bundle-Activator: name.zhangmin.gw.io.monitor.MonitorActivator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: name.zhangmin.gw.core.event.impl,
+ name.zhangmin.gw.core.lib.type,
+ org.osgi.framework;version="1.3.0",
+ org.osgi.service.event;version="1.3.0",
+ org.slf4j;version="1.6.1"
+Service-Component: OSGI-INF/eventlogger.xml
