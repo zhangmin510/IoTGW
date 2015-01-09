@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="name.zhangmin.gw.io.rest.resources.ThingTypeResource">
+   <implementation class="name.zhangmin.gw.io.rest.resources.ThingTypeResource"/>
+   <service>
+      <provide interface="name.zhangmin.gw.io.rest.RESTResource"/>
+   </service>
+   <reference bind="setThingTypeRegistry" cardinality="1..1" interface="name.zhangmin.gw.core.thing.type.ThingTypeRegistry" name="ThingTypeRegistry" policy="static" unbind="unsetThingTypeRegistry"/>
+</scr:component>

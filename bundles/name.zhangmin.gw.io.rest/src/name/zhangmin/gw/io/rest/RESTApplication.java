@@ -22,6 +22,7 @@ import com.sun.jersey.core.util.FeaturesAndProperties;
 import com.sun.jersey.spi.container.servlet.ServletContainer;
 
 import org.osgi.framework.BundleContext;
+import org.osgi.service.component.ComponentContext;
 import org.osgi.service.http.HttpContext;
 import org.osgi.service.http.HttpService;
 import org.osgi.service.http.NamespaceException;
@@ -36,7 +37,7 @@ import org.slf4j.LoggerFactory;
  *
  */
 public class RESTApplication extends Application{
-	public static final String REST_SERVLET_ALIAS = "/rest";
+	public static final String REST_SERVLET_ALIAS = "/rest/v1";
 	
 	private static final Logger logger = LoggerFactory.getLogger(RESTApplication.class);
 	
@@ -99,32 +100,32 @@ public class RESTApplication extends Application{
 		RESTApplication.restResources.remove(resource);
 	}
 	
-	public void activate(BundleContext bundleContext) {
+	public void activate(ComponentContext context) {
 		
-		
+		BundleContext bundleContext = context.getBundleContext();
 		try {
 			ServletContainer servletContainer = new ServletContainer(this);
 			httpService.registerServlet(
 					REST_SERVLET_ALIAS, servletContainer, getJerseyServletParams(), createHttpContext());
 			
 			logger.info("Started REST API at " + REST_SERVLET_ALIAS);
-			if (discoveryService != null) {
-				mdnsName = bundleContext.getProperty("mdnsName");
-				if (mdnsName == null) mdnsName = "iotgw";
-				try {
-					httpPort = Integer.parseInt(bundleContext.getProperty("jetty.port"));
-					discoveryService.registerService(getDefaultServiceDescription());
-				} catch(NumberFormatException e) {
-					logger.error("jetty.port is not a number");
-				}
-				try {
-					httpSSLPort = Integer.parseInt(bundleContext.getProperty("jetty.port.ssl"));
-					discoveryService.registerService(getSSLServiceDescription());
-				} catch(NumberFormatException e) {
-					logger.error("jetty.port.ssl is not a number");
-				}
-				
-			}
+//			if (discoveryService != null) {
+//				mdnsName = bundleContext.getProperty("mdnsName");
+//				if (mdnsName == null) mdnsName = "iotgw";
+//				try {
+//					httpPort = Integer.parseInt(bundleContext.getProperty("jetty.port"));
+//					discoveryService.registerService(getDefaultServiceDescription());
+//				} catch(NumberFormatException e) {
+//					logger.error("jetty.port is not a number");
+//				}
+//				try {
+//					httpSSLPort = Integer.parseInt(bundleContext.getProperty("jetty.port.ssl"));
+//					discoveryService.registerService(getSSLServiceDescription());
+//				} catch(NumberFormatException e) {
+//					logger.error("jetty.port.ssl is not a number");
+//				}
+//				
+//			}
 			
 	
 		} catch (ServletException se) {
@@ -134,16 +135,16 @@ public class RESTApplication extends Application{
 		}
 		
 	}
-	public void deactivate() {
+	public void deactivate(ComponentContext context) {
 		if (this.httpService != null) {
 			httpService.unregister(REST_SERVLET_ALIAS);
 			logger.info("Stooped RESTAPI");
 		}
 		
-		if (this.discoveryService != null) {
-			this.discoveryService.unregisterService(getDefaultServiceDescription());
-			this.discoveryService.unregisterService(getSSLServiceDescription());
-		}
+//		if (this.discoveryService != null) {
+//			this.discoveryService.unregisterService(getDefaultServiceDescription());
+//			this.discoveryService.unregisterService(getSSLServiceDescription());
+//		}
 		restResources.clear();
 	}
 	
@@ -168,6 +169,7 @@ public class RESTApplication extends Application{
 	private Dictionary<String, String> getJerseyServletParams() {
 		Dictionary<String, String> jerseyServletParams = new Hashtable<String, String>();
 		jerseyServletParams.put("javax.ws.rs.Application", RESTApplication.class.getName());
+		jerseyServletParams.put("com.sun.jersey.config.property.packages", "name.zhangmin.gw.io.rest.resources");
 		jerseyServletParams.put(FeaturesAndProperties.FEATURE_XMLROOTELEMENT_PROCESSING, "true");
 		return jerseyServletParams;
 	}
