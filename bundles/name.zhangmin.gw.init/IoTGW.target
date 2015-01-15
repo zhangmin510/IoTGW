@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="IoTGW" sequenceNumber="3">
+<locations>
+<location path="${eclipse_home}" type="Directory"/>
+</locations>
+<includeBundles>
+<plugin id="com.google.guava"/>
+<plugin id="javax.annotation"/>
+<plugin id="javax.annotation.source"/>
+<plugin id="javax.el"/>
+<plugin id="javax.el.source"/>
+<plugin id="javax.inject"/>
+<plugin id="javax.inject.source"/>
+<plugin id="javax.servlet"/>
+<plugin id="javax.servlet.jsp"/>
+<plugin id="javax.servlet.jsp.source"/>
+<plugin id="javax.servlet.source"/>
+<plugin id="javax.xml"/>
+<plugin id="org.apache.commons.io"/>
+<plugin id="org.apache.commons.lang"/>
+<plugin id="org.apache.commons.logging"/>
+<plugin id="org.apache.commons.logging.source"/>
+<plugin id="org.apache.felix.gogo.command"/>
+<plugin id="org.apache.felix.gogo.command.source"/>
+<plugin id="org.apache.felix.gogo.runtime"/>
+<plugin id="org.apache.felix.gogo.runtime.source"/>
+<plugin id="org.apache.felix.gogo.shell"/>
+<plugin id="org.apache.felix.gogo.shell.source"/>
+<plugin id="org.eclipse.equinox.common"/>
+<plugin id="org.eclipse.equinox.common.source"/>
+<plugin id="org.eclipse.equinox.console"/>
+<plugin id="org.eclipse.equinox.console.source"/>
+<plugin id="org.eclipse.equinox.ds"/>
+<plugin id="org.eclipse.equinox.ds.source"/>
+<plugin id="org.eclipse.equinox.http.jetty"/>
+<plugin id="org.eclipse.equinox.http.jetty.source"/>
+<plugin id="org.eclipse.equinox.http.registry"/>
+<plugin id="org.eclipse.equinox.http.registry.source"/>
+<plugin id="org.eclipse.equinox.http.servlet"/>
+<plugin id="org.eclipse.equinox.http.servlet.source"/>
+<plugin id="org.eclipse.equinox.registry"/>
+<plugin id="org.eclipse.equinox.registry.source"/>
+<plugin id="org.eclipse.equinox.util"/>
+<plugin id="org.eclipse.equinox.util.source"/>
+<plugin id="org.eclipse.jetty.continuation"/>
+<plugin id="org.eclipse.jetty.continuation.source"/>
+<plugin id="org.eclipse.jetty.http"/>
+<plugin id="org.eclipse.jetty.http.source"/>
+<plugin id="org.eclipse.jetty.io"/>
+<plugin id="org.eclipse.jetty.io.source"/>
+<plugin id="org.eclipse.jetty.security"/>
+<plugin id="org.eclipse.jetty.security.source"/>
+<plugin id="org.eclipse.jetty.server"/>
+<plugin id="org.eclipse.jetty.server.source"/>
+<plugin id="org.eclipse.jetty.servlet"/>
+<plugin id="org.eclipse.jetty.servlet.source"/>
+<plugin id="org.eclipse.jetty.util"/>
+<plugin id="org.eclipse.jetty.util.source"/>
+<plugin id="org.eclipse.osgi"/>
+<plugin id="org.eclipse.osgi.services"/>
+<plugin id="org.eclipse.osgi.services.source"/>
+<plugin id="org.eclipse.osgi.source"/>
+<plugin id="org.eclipse.osgi.util"/>
+<plugin id="org.eclipse.osgi.util.source"/>
+<plugin id="org.hamcrest.core"/>
+<plugin id="org.junit"/>
+<plugin id="org.slf4j.api"/>
+</includeBundles>
+</target>
