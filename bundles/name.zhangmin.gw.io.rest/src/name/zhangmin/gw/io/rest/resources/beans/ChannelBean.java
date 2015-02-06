@@ -20,10 +20,10 @@ public class ChannelBean {
     public ChannelBean() {
     }
 
-    public ChannelBean(String id, String itemType, String boundItem) {
-        this.appType = itemType;
+    public ChannelBean(String id, String appType, String boundApp) {
+        this.appType = appType;
         this.id = id;
-        this.boundApp = boundItem;
+        this.boundApp = boundApp;
     }
 
 }

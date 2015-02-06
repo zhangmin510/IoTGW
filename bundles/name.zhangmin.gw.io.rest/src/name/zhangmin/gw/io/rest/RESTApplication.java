@@ -14,7 +14,11 @@ import javax.servlet.ServletException;
 import javax.ws.rs.core.Application;
 
 import name.zhangmin.gw.core.event.EventPublisher;
+import name.zhangmin.gw.io.rest.resources.AppResource;
 import name.zhangmin.gw.io.rest.resources.RootResource;
+import name.zhangmin.gw.io.rest.resources.TestResource;
+import name.zhangmin.gw.io.rest.resources.ThingResource;
+import name.zhangmin.gw.io.rest.resources.ThingTypeResource;
 import name.zhangmin.gw.io.servicediscovery.DiscoveryService;
 import name.zhangmin.gw.io.servicediscovery.ServiceDescription;
 
@@ -155,10 +159,19 @@ public class RESTApplication extends Application{
 	@Override
 	public Set<Class<?>> getClasses() {
 		Set<Class<?>> result = new HashSet<Class<?>>();
+		
 		result.add(RootResource.class);
-		for (RESTResource res : restResources) {
-			result.add(res.getClass());
-		}
+		result.add(TestResource.class);
+		result.add(ThingResource.class);
+		result.add(AppResource.class);
+		result.add(ThingTypeResource.class);
+		
+		//this method called before all resources binded.
+//		for (RESTResource res : restResources) {
+//			result.add(res.getClass());
+//			System.out.println("===>add class to app: " + res.getClass());
+//		}
+		
 		return result;
 	}
 	
@@ -169,7 +182,7 @@ public class RESTApplication extends Application{
 	private Dictionary<String, String> getJerseyServletParams() {
 		Dictionary<String, String> jerseyServletParams = new Hashtable<String, String>();
 		jerseyServletParams.put("javax.ws.rs.Application", RESTApplication.class.getName());
-		jerseyServletParams.put("com.sun.jersey.config.property.packages", "name.zhangmin.gw.io.rest.resources");
+		//jerseyServletParams.put("com.sun.jersey.config.property.packages", "name.zhangmin.gw.io.rest.resources");
 		jerseyServletParams.put(FeaturesAndProperties.FEATURE_XMLROOTELEMENT_PROCESSING, "true");
 		return jerseyServletParams;
 	}

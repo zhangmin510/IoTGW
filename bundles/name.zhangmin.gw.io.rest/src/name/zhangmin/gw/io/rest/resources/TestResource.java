@@ -21,7 +21,7 @@ import name.zhangmin.gw.io.rest.RESTResource;
  * @author ZhangMin.name
  *
  */
-@Path("hello")
+@Path(TestResource.PATH_APPS)
 public class TestResource implements RESTResource{
 	
 	private final Logger logger = LoggerFactory.getLogger(TestResource.class);

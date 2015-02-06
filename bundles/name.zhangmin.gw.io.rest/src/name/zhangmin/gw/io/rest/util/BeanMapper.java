@@ -25,7 +25,7 @@ public class BeanMapper {
         bean.name = app.getName();
         bean.state = app.getState().toString();
         bean.type = app.getClass().getSimpleName();
-        bean.link = UriBuilder.fromUri(uriPath).path(AppResource.PATH_APPS).path(bean.name).build().toASCIIString();
+        bean.link = UriBuilder.fromUri(uriPath).path("apps").path(bean.name).build().toASCIIString();
        
 
         return bean;
@@ -40,7 +40,7 @@ public class BeanMapper {
 
         String thingUID = thing.getUID().toString();
         
-        return new ThingBean(thingUID,null, thing.getStatus(), channelBeans, thing.getConfiguration());
+        return new ThingBean(thingUID, thing.getStatus(), channelBeans, thing.getConfiguration());
     }
 
     public static ChannelBean mapChannelToBean(Channel channel, AppChannelLinkRegistry appChannelLinkRegistry) {

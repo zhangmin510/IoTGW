@@ -2,12 +2,12 @@
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="name.zhangmin.gw.io.rest.resources.ThingResource">
    <implementation class="name.zhangmin.gw.io.rest.resources.ThingResource"/>
    <service>
+   	  <provide interface="name.zhangmin.gw.io.rest.resources.ThingResource"/>
       <provide interface="name.zhangmin.gw.io.rest.RESTResource"/>
    </service>
-   <reference bind="setManagedAppChannelLinkProvider" cardinality="1..1" interface="name.zhangmin.gw.core.thing.link.ManagedAppChannelLinkProvider" name="ManagedAppChannelLinkProvider" policy="dynamic" unbind="unsetManagedAppChannelLinkProvider"/>
-   <reference bind="setManagedThingProvider" cardinality="1..1" interface="name.zhangmin.gw.core.thing.ManagedThingProvider" name="ManagedThingProvider" policy="dynamic" unbind="unsetManagedThingProvider"/>
+   <reference bind="setManagedAppChannelLinkProvider" cardinality="1..1" interface="name.zhangmin.gw.core.thing.link.ManagedAppChannelLinkProvider" name="ManagedAppChannelLinkProvider" policy="static" unbind="unsetManagedAppChannelLinkProvider"/>
+   <reference bind="setManagedThingProvider" cardinality="1..1" interface="name.zhangmin.gw.core.thing.ManagedThingProvider" name="ManagedThingProvider" policy="static" unbind="unsetManagedThingProvider"/>
    <reference bind="setAppChannelLinkRegistry" cardinality="1..1" interface="name.zhangmin.gw.core.thing.link.AppChannelLinkRegistry" name="AppChannelLinkRegistry" policy="static" unbind="unsetAppChannelLinkRegistry"/>
-   <reference bind="setAppFactory" cardinality="1..1" interface="name.zhangmin.gw.core.apps.AppFactory" name="AppFactory" policy="static" unbind="unsetAppFactory"/>
    <reference bind="setAppRegistry" cardinality="1..1" interface="name.zhangmin.gw.core.apps.AppRegistry" name="AppRegistry" policy="static" unbind="unsetAppRegistry"/>
    <reference bind="setManagedAppProvider" cardinality="1..1" interface="name.zhangmin.gw.core.apps.impl.ManagedAppProvider" name="ManagedAppProvider" policy="static" unbind="unsetManagedAppProvider"/>
    <reference bind="setThingRegistry" cardinality="1..1" interface="name.zhangmin.gw.core.thing.ThingRegistry" name="ThingRegistry" policy="static" unbind="unsetThingRegistry"/>

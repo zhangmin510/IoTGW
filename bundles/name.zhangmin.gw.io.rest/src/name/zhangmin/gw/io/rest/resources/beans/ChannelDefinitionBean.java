@@ -2,17 +2,20 @@ package name.zhangmin.gw.io.rest.resources.beans;
 
 import java.util.Set;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * This is a java bean that is used to serialize channel definitions.
  * 
  * @author ZhangMin.name
  */
+@XmlRootElement
 public class ChannelDefinitionBean {
-
-    public String description;
+	
     public String id;
     public String label;
-
+    public String description;
+    
     public ChannelDefinitionBean() {
 
     }

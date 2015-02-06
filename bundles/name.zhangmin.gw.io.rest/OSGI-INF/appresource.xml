@@ -2,9 +2,11 @@
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="name.zhangmin.gw.io.rest.resources.AppResource">
    <implementation class="name.zhangmin.gw.io.rest.resources.AppResource"/>
    <service>
-      <provide interface="name.zhangmin.gw.io.rest.RESTResource"/>
       <provide interface="name.zhangmin.gw.io.rest.resources.AppResource"/>
+      <provide interface="name.zhangmin.gw.io.rest.RESTResource"/>
    </service>
-   <reference bind="setThingTypeRegistry" cardinality="1..1" interface="name.zhangmin.gw.core.thing.type.ThingTypeRegistry" name="ThingTypeRegistry" policy="static" unbind="unsetThingTypeRegistry"/>
-   <reference bind="setThingTypeProvider" cardinality="1..1" interface="name.zhangmin.gw.core.thing.type.ThingTypeProvider" name="ThingTypeProvider" policy="static" unbind="unsetThingTypeProvider"/>
+   <reference bind="setManagedAppProvider" cardinality="1..1" interface="name.zhangmin.gw.core.apps.impl.ManagedAppProvider" name="ManagedAppProvider" policy="static" unbind="unsetManagedAppProvider"/>
+   <reference bind="setAppRegistry" cardinality="1..1" interface="name.zhangmin.gw.core.apps.AppRegistry" name="AppRegistry" policy="static" unbind="unsetAppRegistry"/>
+   <reference bind="setEventPublisher" cardinality="1..1" interface="name.zhangmin.gw.core.event.EventPublisher" name="EventPublisher" policy="static" unbind="unsetEventPublisher"/>
+   <reference bind="setAppFactory" cardinality="1..n" interface="name.zhangmin.gw.core.apps.AppFactory" name="AppFactory" policy="dynamic" unbind="unsetAppFactory"/>
 </scr:component>

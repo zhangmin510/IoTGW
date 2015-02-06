@@ -2,6 +2,7 @@
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="name.zhangmin.gw.io.rest.resources.TestResource">
    <implementation class="name.zhangmin.gw.io.rest.resources.TestResource"/>
    <service>
+   	  <provide interface="name.zhangmin.gw.io.rest.resources.TestResource"/>
       <provide interface="name.zhangmin.gw.io.rest.RESTResource"/>
    </service>
 </scr:component>

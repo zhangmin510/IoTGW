@@ -17,19 +17,17 @@ import name.zhangmin.gw.core.thing.ThingStatus;
  */
 public class ThingBean {
 
-    public String bridgeUID;
+	public String UID;
     public Map<String, Object> configuration;
-    public name.zhangmin.gw.core.thing.ThingStatus status;
-    public String UID;
+    public ThingStatus status;
     public List<ChannelBean> channels;
 
     public ThingBean() {
     }
 
-    public ThingBean(String UID, String bridgeUID, ThingStatus status, List<ChannelBean> channels,
+    public ThingBean(String UID, ThingStatus status, List<ChannelBean> channels,
             Configuration configuration) {
         this.UID = UID;
-        this.bridgeUID = bridgeUID;
         this.status = status;
         this.channels = channels;
         this.configuration = toMap(configuration);

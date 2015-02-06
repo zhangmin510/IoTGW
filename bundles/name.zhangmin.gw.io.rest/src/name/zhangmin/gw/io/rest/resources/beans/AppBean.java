@@ -1,6 +1,6 @@
 package name.zhangmin.gw.io.rest.resources.beans;
 
-import java.util.Set;
+
 
 
 /**
@@ -15,8 +15,10 @@ public class AppBean {
 	public String name;	
 	public String state;
 	public String link;
-	public Set<String> tags; 
 	
 	public AppBean() {}
+
+	
+	
 		
 }

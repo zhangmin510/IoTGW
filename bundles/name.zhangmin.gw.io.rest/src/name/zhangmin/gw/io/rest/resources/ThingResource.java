@@ -55,7 +55,7 @@ public class ThingResource implements RESTResource{
 	private ManagedAppProvider managedAppProvider;
 	private ManagedThingProvider managedThingProvider;
 	private ManagedAppChannelLinkProvider managedAppChannelLinkProvider;
-	private ThingRegistry thingRegistry;
+	private static ThingRegistry thingRegistry;
 	
 	@Context
 	private UriInfo uriInfo;
@@ -75,10 +75,11 @@ public class ThingResource implements RESTResource{
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAll() {
-		Collection<Thing> things = thingRegistry.getThings();
-		Set<ThingBean> thingBeans = convertToListBean(things);
-		
-		return Response.ok(thingBeans).build();
+//		Collection<Thing> things = thingRegistry.getThings();
+//		Set<ThingBean> thingBeans = convertToListBean(things);
+//		
+//		return Response.ok(thingBeans).build();
+		return Response.ok("hello things").build();
 		
 	}
 	
@@ -95,55 +96,55 @@ public class ThingResource implements RESTResource{
 		}
 	}
 	
-	public void setAppChannelLinkRegistry(
+	protected void setAppChannelLinkRegistry(
 			AppChannelLinkRegistry appChannelLinkRegistry) {
 		this.appChannelLinkRegistry = appChannelLinkRegistry;
 	}
 	
-	public void unsetAppChannelLinkRegistry() {
+	protected void unsetAppChannelLinkRegistry() {
 		this.appChannelLinkRegistry = null;
 	}
 	
-	public void setAppFactory(AppFactory appFactory) {
+	protected void setAppFactory(AppFactory appFactory) {
 		this.appFactory = appFactory;
 	}
-	public void unsetAppFactory() {
+	protected void unsetAppFactory() {
 		this.appFactory = null;
 	}
 	
-	public void setAppRegistry(AppRegistry appRegistry) {
+	protected void setAppRegistry(AppRegistry appRegistry) {
 		this.appRegistry = appRegistry;
 	}
-	public void unsetAppRegistry() {
+	protected void unsetAppRegistry() {
 		this.appRegistry = null;
 	}
 	
-	public void setManagedAppProvider(ManagedAppProvider managedAppProvider) {
+	protected void setManagedAppProvider(ManagedAppProvider managedAppProvider) {
 		this.managedAppProvider = managedAppProvider;
 	}
-	public void unsetManagedAppProvider() {
+	protected void unsetManagedAppProvider() {
 		this.managedAppProvider = null;
 	}
 	
-	public void setThingRegistry(ThingRegistry thingRegistry) {
+	protected void setThingRegistry(ThingRegistry thingRegistry) {
 		this.thingRegistry = thingRegistry;
 	}
-	public void unsetThingRegistry() {
+	protected void unsetThingRegistry() {
 		this.thingRegistry = null;
 	}
 	
-	public void setManagedThingProvider(ManagedThingProvider managedThingProvider) {
+	protected void setManagedThingProvider(ManagedThingProvider managedThingProvider) {
 		this.managedThingProvider = managedThingProvider;
 	}
-	public void unsetManagedThingProvider() {
+	protected void unsetManagedThingProvider() {
 		this.managedThingProvider = null;
 	}
 	
-	public void setManagedAppChannelLinkProvider(ManagedAppChannelLinkProvider managedAppChannelLinkProvider) {
+	protected void setManagedAppChannelLinkProvider(ManagedAppChannelLinkProvider managedAppChannelLinkProvider) {
 		this.managedAppChannelLinkProvider = managedAppChannelLinkProvider;
 	}
 	
-	public void unsetManagedAppChannelLinkProvider(ManagedAppChannelLinkProvider managedAppChannelLinkProvider) {
+	protected void unsetManagedAppChannelLinkProvider(ManagedAppChannelLinkProvider managedAppChannelLinkProvider) {
 		this.managedAppChannelLinkProvider = null;
 	}
 	
