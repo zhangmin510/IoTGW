@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.ws.rs.core.Application;
 
 import name.zhangmin.gw.core.event.EventPublisher;
+import name.zhangmin.gw.io.rest.resources.AppChannelLinkResource;
 import name.zhangmin.gw.io.rest.resources.AppResource;
 import name.zhangmin.gw.io.rest.resources.RootResource;
 import name.zhangmin.gw.io.rest.resources.TestResource;
@@ -165,6 +166,7 @@ public class RESTApplication extends Application{
 		result.add(ThingResource.class);
 		result.add(AppResource.class);
 		result.add(ThingTypeResource.class);
+		result.add(AppChannelLinkResource.class);
 		
 		//this method called before all resources binded.
 //		for (RESTResource res : restResources) {

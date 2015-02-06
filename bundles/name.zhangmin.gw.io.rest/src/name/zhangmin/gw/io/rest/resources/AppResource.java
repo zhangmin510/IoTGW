@@ -147,7 +147,7 @@ public class AppResource implements RESTResource{
 	}
 	
 	@DELETE
-	@Path("{/appname: [a-zA-Z_0-9]*}")
+	@Path("/{appname: [a-zA-Z_0-9]*}")
 	public Response removeApp(@PathParam("appname")String appname) {
 		if (managedAppProvider.removeApp(appname) == null) {
 			logger.info("Received HTTP DELETE reqeust at '{}' for the unknown app '{}'.", uriInfo.getPath(), appname);

@@ -3,10 +3,13 @@
  */
 package name.zhangmin.gw.io.rest.resources.beans;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * @author ZhangMin.name
  *
  */
+@XmlRootElement(name = "app-channle-link")
 public class AppChannelLinkBean {
 	private String channelUID;
 	private String appName;

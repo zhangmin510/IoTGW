@@ -19,6 +19,7 @@ import name.zhangmin.gw.core.thing.link.AppChannelLink;
 import name.zhangmin.gw.core.thing.link.AppChannelLinkRegistry;
 import name.zhangmin.gw.core.thing.link.ManagedAppChannelLinkProvider;
 import name.zhangmin.gw.core.thing.uid.ChannelUID;
+import name.zhangmin.gw.io.rest.RESTResource;
 import name.zhangmin.gw.io.rest.resources.beans.AppChannelLinkBean;
 
 /**
@@ -26,26 +27,28 @@ import name.zhangmin.gw.io.rest.resources.beans.AppChannelLinkBean;
  *
  */
 @Path("links")
-public class AppChannelLinkResource {
-	private AppChannelLinkRegistry appChannelLinkRegistry;
-	private ManagedAppChannelLinkProvider managedAppLinkChannelProvider;
+public class AppChannelLinkResource implements RESTResource{
+	private static AppChannelLinkRegistry appChannelLinkRegistry;
+	private static ManagedAppChannelLinkProvider managedAppLinkChannelProvider;
 	
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
-	public Response getAll() {
+	public Collection<AppChannelLinkBean> getAll() {
+		//TODO remove after test 
+		managedAppLinkChannelProvider.addAppChannelLink(new AppChannelLink("testApp", new ChannelUID("bid:typeid:thingid:testChannelUID")));
 		Collection<AppChannelLink> links = appChannelLinkRegistry.getAppChannelLinks();
-		return Response.ok(toBeans(links)).build();
+		return toBeans(links);
 	}
 	
 	@PUT
-	@Path("{/{appName}/{channelUID}")
+	@Path("/{appName}/{channelUID}")
 	public Response link(@PathParam("appName")String appName, @PathParam("channelUID") String channelUID) {
 		managedAppLinkChannelProvider.addAppChannelLink(new AppChannelLink(appName, new ChannelUID(channelUID)));
 		return Response.ok().build();
 	}
 	
 	@DELETE
-	@Path("{/{appName}/{channelUID}")
+	@Path("/{appName}/{channelUID}")
 	public Response unlink(@PathParam("appName") String appName, @PathParam("channelUID") String channelUID) {
 	     managedAppLinkChannelProvider.removeAppChannelLink(new AppChannelLink(appName, new ChannelUID(channelUID)));
 	     return Response.ok().build();

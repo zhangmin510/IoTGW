@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="name.zhangmin.gw.io.rest.resources.AppChannelLinkResource">
+   <implementation class="name.zhangmin.gw.io.rest.resources.AppChannelLinkResource"/>
+   <service>
+      <provide interface="name.zhangmin.gw.io.rest.resources.AppChannelLinkResource"/>
+      <provide interface="name.zhangmin.gw.io.rest.RESTResource"/>
+   </service>
+   <reference bind="setManagedAppLinkChannelProvider" cardinality="1..1" interface="name.zhangmin.gw.core.thing.link.ManagedAppChannelLinkProvider" name="ManagedAppChannelLinkProvider" policy="static" unbind="unsetManagedAppLinkChannelProvider"/>
+   <reference bind="setAppChannelLinkRegistry" cardinality="1..1" interface="name.zhangmin.gw.core.thing.link.AppChannelLinkRegistry" name="AppChannelLinkRegistry" policy="static" unbind="unsetAppChannelLinkRegistry"/>
+   
+</scr:component>
