@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="name.zhangmin.gw.core.thing.binding.BindingInfoRegistry">
+   <implementation class="name.zhangmin.gw.core.thing.binding.BindingInfoRegistry"/>
+   <service>
+      <provide interface="name.zhangmin.gw.core.thing.binding.BindingInfoRegistry"/>
+   </service>
+   <reference bind="addBindingInfo" cardinality="0..n" interface="name.zhangmin.gw.core.thing.binding.BindingInfo" name="BindingInfo" policy="dynamic" unbind="removeBindingInfo"/>
+   
+ </scr:component>

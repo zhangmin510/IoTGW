@@ -20,12 +20,12 @@ public class EventPublisherTest {
 	
 	public void setEventPublisher(EventPublisher eventPublisher) {
 		this.eventPublisher = eventPublisher;
-		System.out.println("set eventPublisher " + this.eventPublisher);
+//		System.out.println("set eventPublisher " + this.eventPublisher);
 	}
 	
 	public void unsetEventPublisher(EventPublisher eventPublisher) {
 		this.eventPublisher = null;
-		System.out.println("unset eventPublisher " + this.eventPublisher);
+//		System.out.println("unset eventPublisher " + this.eventPublisher);
 	}
 	
 	public void activate() {

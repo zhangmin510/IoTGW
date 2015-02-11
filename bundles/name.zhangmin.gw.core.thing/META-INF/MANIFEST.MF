@@ -19,6 +19,7 @@ Import-Package: com.google.common.base;version="10.0.1",
  org.slf4j;version="1.6.1"
 Export-Package: name.zhangmin.gw.core.thing,
  name.zhangmin.gw.core.thing.binding,
+ name.zhangmin.gw.core.thing.link,
  name.zhangmin.gw.core.thing.type,
  name.zhangmin.gw.core.thing.uid
 Service-Component: OSGI-INF/*

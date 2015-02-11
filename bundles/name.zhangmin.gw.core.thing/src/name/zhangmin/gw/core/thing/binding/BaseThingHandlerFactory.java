@@ -11,11 +11,11 @@ import java.util.Map.Entry;
 
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
+import org.osgi.service.component.ComponentContext;
 import org.osgi.util.tracker.ServiceTracker;
 
 import name.zhangmin.gw.config.Configuration;
 import name.zhangmin.gw.core.thing.Thing;
-import name.zhangmin.gw.core.thing.ThingActivator;
 import name.zhangmin.gw.core.thing.ThingFactory;
 import name.zhangmin.gw.core.thing.type.ThingType;
 import name.zhangmin.gw.core.thing.type.ThingTypeRegistry;
@@ -35,13 +35,13 @@ public abstract class BaseThingHandlerFactory implements ThingHandlerFactory {
 	private BundleContext bundleContext;
 	private ServiceTracker<ThingTypeRegistry, ThingTypeRegistry> thingTypeRegistryServiceTracker;
 	
-	protected void activate() {
-		this.bundleContext = ThingActivator.getContext();
+	protected void activate(ComponentContext context) {
+		this.bundleContext = context.getBundleContext();
 		this.thingTypeRegistryServiceTracker = new ServiceTracker<>(bundleContext, ThingTypeRegistry.class.getName(), null);
 		this.thingTypeRegistryServiceTracker.open();
 	}
 	
-	protected void deactivate() {
+	protected void deactivate(ComponentContext context) {
 		for (ServiceRegistration<ThingHandler> serviceRegistration : this.thingHandlers.values()) {
 			ThingHandler thingHandler = (ThingHandler) this.bundleContext.getService(serviceRegistration.getReference());
 			thingHandler.dispose();
