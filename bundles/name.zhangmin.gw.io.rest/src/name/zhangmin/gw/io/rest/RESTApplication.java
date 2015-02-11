@@ -16,6 +16,7 @@ import javax.ws.rs.core.Application;
 import name.zhangmin.gw.core.event.EventPublisher;
 import name.zhangmin.gw.io.rest.resources.AppChannelLinkResource;
 import name.zhangmin.gw.io.rest.resources.AppResource;
+import name.zhangmin.gw.io.rest.resources.BindingResource;
 import name.zhangmin.gw.io.rest.resources.RootResource;
 import name.zhangmin.gw.io.rest.resources.TestResource;
 import name.zhangmin.gw.io.rest.resources.ThingResource;
@@ -167,6 +168,7 @@ public class RESTApplication extends Application{
 		result.add(AppResource.class);
 		result.add(ThingTypeResource.class);
 		result.add(AppChannelLinkResource.class);
+		result.add(BindingResource.class);
 		
 		//this method called before all resources binded.
 //		for (RESTResource res : restResources) {

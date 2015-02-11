@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import name.zhangmin.gw.config.Configuration;
 import name.zhangmin.gw.core.thing.ThingStatus;
 
@@ -15,6 +17,7 @@ import name.zhangmin.gw.core.thing.ThingStatus;
  * @author ZhangMin.name
  *
  */
+@XmlRootElement(name = "things")
 public class ThingBean {
 
 	public String UID;
